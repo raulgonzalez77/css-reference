@@ -129,8 +129,6 @@ if (playground) {
 
 
 
-
-
 const panels = node('div', 'playground-panels');
 
 const sourcePanel = node('div', 'playground-panel');
@@ -218,6 +216,8 @@ function updatePlayground() {
 select.addEventListener('change', updatePlayground);
 
 updatePlayground();
+}
+
 
 
 
