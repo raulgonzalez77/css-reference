@@ -382,3 +382,73 @@ p code {
     margin-top: 1rem;
     font-weight: 700;
 }
+
+
+
+
+
+
+
+
+
+
+/* -----------------------------------------
+   Playground: Side-by-side panels
+----------------------------------------- */
+
+.playground-panels {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.playground-panel {
+    min-width: 0;
+    padding: 1rem;
+    background: #fff;
+    border: 1px solid #d8e0eb;
+    border-radius: 8px;
+}
+
+.playground-panel-title {
+    margin: 0 0 1rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.playground-source {
+    margin: 0;
+    overflow-x: auto;
+    font-size: 0.85rem;
+    line-height: 1.8;
+}
+
+.playground-code-line {
+    display: block;
+    white-space: pre;
+}
+
+.playground-source-match {
+    background: #dcfce7;
+    outline: 1px solid #16a34a;
+    border-radius: 3px;
+}
+
+.playground-example {
+    padding: 0;
+    border: 0;
+}
+
+.playground-match {
+    background: #dcfce7;
+    outline: 2px solid #16a34a;
+    outline-offset: 2px;
+}
+
+@media (max-width: 700px) {
+    .playground-panels {
+        grid-template-columns: 1fr;
+    }
+}

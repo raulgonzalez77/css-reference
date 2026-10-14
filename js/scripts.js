@@ -115,50 +115,109 @@ if (playground) {
         select.append(option);
     });
 
-    const example = node('div', 'playground-example');
 
-    const result = node('p', 'playground-result');
 
-    playground.append(select, example, result);
 
-    function updatePlayground() {
 
-        example.innerHTML = `
-            <div class="demo-parent">
-                <p>First paragraph</p>
-                <section>
-                    <p>Nested paragraph</p>
-                </section>
-                <ul>
-                    <li>List item</li>
-                </ul>
-                <p>Paragraph after list</p>
-                <table>
-                    <tbody>
-                        <tr><td>Table cell</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        `;
 
-        const selector = select.value;
 
-        const matches = example.querySelectorAll(selector);
 
-        matches.forEach(element => {
-            element.classList.add('playground-match');
-        });
 
-        result.textContent =
-            `${matches.length} matching element${matches.length === 1 ? '' : 's'}`;
 
-    }
 
-    select.addEventListener('change', updatePlayground);
 
-    updatePlayground();
+
+
+
+
+
+const panels = node('div', 'playground-panels');
+
+const sourcePanel = node('div', 'playground-panel');
+const previewPanel = node('div', 'playground-panel');
+
+const sourceTitle = node('h3', 'playground-panel-title', 'HTML SOURCE');
+const previewTitle = node('h3', 'playground-panel-title', 'LIVE PREVIEW');
+
+const source = node('pre', 'playground-source');
+const example = node('div', 'playground-example');
+const result = node('p', 'playground-result');
+
+sourcePanel.append(sourceTitle, source);
+previewPanel.append(previewTitle, example);
+
+panels.append(sourcePanel, previewPanel);
+playground.append(panels, result);
+
+const sampleHTML = `<div>
+  <p>First paragraph</p>
+  <section>
+    <p>Nested paragraph</p>
+  </section>
+  <ul>
+    <li>List item</li>
+  </ul>
+  <p>Paragraph after list</p>
+  <table>
+    <tbody>
+      <tr><td>Table cell</td></tr>
+    </tbody>
+  </table>
+</div>`;
+
+function updatePlayground() {
+
+    example.innerHTML = sampleHTML;
+
+    const selector = select.value;
+    const matches = [...example.querySelectorAll(selector)];
+
+    matches.forEach(element => {
+        element.classList.add('playground-match');
+    });
+
+    // Build highlighted source code using the original HTML.
+    const sourceLines = sampleHTML.split('\n');
+
+    source.replaceChildren();
+
+    const code = node('code');
+
+    sourceLines.forEach(line => {
+
+        const span = node('span', 'playground-code-line', line);
+
+        // Determine whether the line represents a matched element.
+        const trimmed = line.trim();
+
+        if (trimmed.startsWith('<p>')) {
+
+            const paragraphText = trimmed
+                .replace(/<\/?p>/g, '');
+
+            const isMatch = matches.some(element =>
+                element.tagName === 'P' &&
+                element.textContent.trim() === paragraphText
+            );
+
+            if (isMatch) {
+                span.classList.add('playground-source-match');
+            }
+        }
+
+        code.append(span, document.createTextNode('\n'));
+    });
+
+    source.append(code);
+
+    result.textContent =
+        `${matches.length} matching element${matches.length === 1 ? '' : 's'}`;
+
 }
 
+select.addEventListener('change', updatePlayground);
+
+updatePlayground();
 
 
 
