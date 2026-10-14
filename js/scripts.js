@@ -145,7 +145,8 @@ sourcePanel.append(sourceTitle, source);
 previewPanel.append(previewTitle, example);
 
 panels.append(sourcePanel, previewPanel);
-playground.append(panels, result);
+//playground.append(panels, result);
+playground.append(select, panels, result);
 
 const sampleHTML = `<div>
   <p>First paragraph</p>
