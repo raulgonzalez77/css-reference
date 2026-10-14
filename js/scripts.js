@@ -88,4 +88,81 @@ function render(query='') {
 }
 searchInput.addEventListener('input',()=>render(searchInput.value));
 document.querySelector('#print-button').addEventListener('click',()=>window.print());
+
+
+
+
+
+
+
+/* -----------------------------------------
+   CSS Selector Playground
+----------------------------------------- */
+
+const playground = document.querySelector('#selector-playground');
+
+if (playground) {
+
+    const selectors = categories
+        .find(category => category.name === 'Relationships and combinators')
+        .entries;
+
+    const select = node('select', 'playground-select');
+
+    selectors.forEach(([selector, title]) => {
+        const option = node('option', '', `${selector} — ${title}`);
+        option.value = selector;
+        select.append(option);
+    });
+
+    const example = node('div', 'playground-example');
+
+    const result = node('p', 'playground-result');
+
+    playground.append(select, example, result);
+
+    function updatePlayground() {
+
+        example.innerHTML = `
+            <div class="demo-parent">
+                <p>First paragraph</p>
+                <section>
+                    <p>Nested paragraph</p>
+                </section>
+                <ul>
+                    <li>List item</li>
+                </ul>
+                <p>Paragraph after list</p>
+                <table>
+                    <tbody>
+                        <tr><td>Table cell</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        `;
+
+        const selector = select.value;
+
+        const matches = example.querySelectorAll(selector);
+
+        matches.forEach(element => {
+            element.classList.add('playground-match');
+        });
+
+        result.textContent =
+            `${matches.length} matching element${matches.length === 1 ? '' : 's'}`;
+
+    }
+
+    select.addEventListener('change', updatePlayground);
+
+    updatePlayground();
+}
+
+
+
+
+
+
+
 render();
