@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A plain-English CSS selector reference for Web Design I." />
+    <title>CSS Selector Reference | Web Design I</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="#top">{ CSS } <span>Selector Reference</span></a
+        ><span class="course">WEB DESIGN I</span>
+      </div>
+    </header>
+    <main id="top" class="container">
+      <section class="hero" aria-labelledby="page-title">
+        <p class="eyebrow">Learn to read CSS</p>
+        <h1 id="page-title">CSS selectors, explained.</h1>
+        <p class="lede">A practical reference that translates CSS selectors into plain English. Find a selector, learn what it means, and see an example.</p>
+        <div class="search-wrap"><label for="search">Search selectors or descriptions</label><input id="search" type="search" placeholder="Try: child, hover, [id], starts with…" autocomplete="off" /><span id="result-count" role="status" aria-live="polite"></span></div>
+      </section>
+      <section class="vocabulary" aria-labelledby="vocab-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Start here</p>
+            <h2 id="vocab-heading">Understanding HTML relationships</h2>
+          </div>
+        </div>
+        <p>CSS selectors often describe where elements appear in an HTML document. These terms make the examples below much easier to understand.</p>
+        <div class="vocab-grid">
+          <article>
+            <h3>Parent</h3>
+            <p>An element that <strong>directly contains</strong> another element.</p>
+          </article>
+          <article>
+            <h3>Child</h3>
+            <p>An element <strong>directly inside</strong> a parent element.</p>
+          </article>
+          <article>
+            <h3>Descendant</h3>
+            <p>An element anywhere inside another element, even several levels down.</p>
+          </article>
+          <article>
+            <h3>Ancestor</h3>
+            <p>Any element that contains another element, directly or indirectly.</p>
+          </article>
+          <article>
+            <h3>Sibling</h3>
+            <p>Elements that share the <strong>same parent</strong>.</p>
+          </article>
+          <article>
+            <h3>Nested</h3>
+            <p>HTML elements placed inside other HTML elements.</p>
+          </article>
+        </div>
+        <div class="code-example">
+          <div>
+            <span class="code-label">Example HTML</span>
+            <pre><code>&lt;div&gt;
+  &lt;p&gt;First paragraph&lt;/p&gt;
+  &lt;section&gt;
+    &lt;p&gt;Nested paragraph&lt;/p&gt;
+  &lt;/section&gt;
+&lt;/div&gt;</code></pre>
+          </div>
+          <p>The <code>div</code> is the parent of the first <code>p</code> and the <code>section</code>. Both paragraphs are descendants of the <code>div</code>, but only the first is its direct child. The first <code>p</code> and <code>section</code> are siblings.</p>
+        </div>
+      </section>
+      <section class="reference" aria-labelledby="reference-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Quick reference</p>
+            <h2 id="reference-heading">CSS selector cheat sheet</h2>
+          </div>
+          <button id="print-button" type="button" class="print-button">Print reference</button>
+        </div>
+        <nav id="category-nav" class="category-nav" aria-label="Selector categories"></nav>
+        <div id="reference-list"></div>
+        <p id="empty-message" class="empty-message" hidden>No selectors found. Try a different search term.</p>
+      </section>
+    </main>
+    <footer class="container footer">CSS Selector Reference · Web Design I · Built for learning and experimentation.</footer>
+
+    <script src="js/scripts.js" defer></script>
+  </body>
+</html>
