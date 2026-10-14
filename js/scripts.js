@@ -182,30 +182,51 @@ function updatePlayground() {
 
     const code = node('code');
 
-    sourceLines.forEach(line => {
+      sourceLines.forEach(line => {
 
-        const span = node('span', 'playground-code-line', line);
+          const span = node('span', 'playground-code-line', line);
+          const trimmed = line.trim();
 
-        // Determine whether the line represents a matched element.
-        const trimmed = line.trim();
+          // Identify the opening HTML tag on this line.
+          const tagMatch = trimmed.match(/^<([a-z][a-z0-9]*)\b/i);
 
-        if (trimmed.startsWith('<p>')) {
+          if (tagMatch) {
 
-            const paragraphText = trimmed
-                .replace(/<\/?p>/g, '');
+              const tagName = tagMatch[1].toUpperCase();
 
-            const isMatch = matches.some(element =>
-                element.tagName === 'P' &&
-                element.textContent.trim() === paragraphText
-            );
+              // Find matching elements with this tag name.
+              const matchingElements = matches.filter(element =>
+                  element.tagName === tagName
+              );
 
-            if (isMatch) {
-                span.classList.add('playground-source-match');
-            }
-        }
+              if (matchingElements.length) {
 
-        code.append(span, document.createTextNode('\n'));
-    });
+                  // For paragraphs, match the text to the actual element.
+                  if (tagName === 'P') {
+
+                      const paragraphText = trimmed
+                          .replace(/<\/?p>/g, '');
+
+                      const isMatch = matchingElements.some(element =>
+                          element.textContent.trim() === paragraphText
+                      );
+
+                      if (isMatch) {
+                          span.classList.add('playground-source-match');
+                      }
+
+                  } else {
+
+                      // Highlight other matching tags, including table.
+                      span.classList.add('playground-source-match');
+
+                  }
+              }
+          }
+
+          code.append(span);
+
+      });
 
     source.append(code);
 

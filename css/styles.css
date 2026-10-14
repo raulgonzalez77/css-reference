@@ -428,6 +428,20 @@ p code {
 .playground-code-line {
     display: block;
     white-space: pre;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+
+.playground-source {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+
+.playground-source code {
+    display: block;
+    line-height: inherit;
 }
 
 .playground-source-match {
