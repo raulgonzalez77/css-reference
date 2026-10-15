@@ -1,0 +1,120 @@
+
+/* CSS Selector Playground */
+
+.playground-select {
+    width: 100%;
+    max-width: 450px;
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
+    font: inherit;
+}
+
+.playground-example {
+    padding: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.playground-example .demo-parent {
+    display: grid;
+    gap: 0.75rem;
+}
+
+.playground-example .demo-parent > * {
+    margin: 0;
+}
+
+.playground-match {
+    outline: 3px solid #16a34a;
+    outline-offset: 2px;
+    background-color: #dcfce7;
+}
+
+.playground-result {
+    margin-top: 1rem;
+    font-weight: 700;
+}
+
+
+
+
+
+
+
+
+
+
+/* -----------------------------------------
+   Playground: Side-by-side panels
+----------------------------------------- */
+
+.playground-panels {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.playground-panel {
+    min-width: 0;
+    padding: 1rem;
+    background: #fff;
+    border: 1px solid #d8e0eb;
+    border-radius: 8px;
+}
+
+.playground-panel-title {
+    margin: 0 0 1rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.playground-source {
+    margin: 0;
+    overflow-x: auto;
+    font-size: 0.85rem;
+    line-height: 1.8;
+}
+
+.playground-code-line {
+    display: block;
+    white-space: pre;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0;
+}
+
+.playground-source {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+
+.playground-source code {
+    display: block;
+    line-height: inherit;
+}
+
+.playground-source-match {
+    background: #dcfce7;
+    outline: 1px solid #16a34a;
+    border-radius: 3px;
+}
+
+.playground-example {
+    padding: 0;
+    border: 0;
+}
+
+.playground-match {
+    background: #dcfce7;
+    outline: 2px solid #16a34a;
+    outline-offset: 2px;
+}
+
+@media (max-width: 700px) {
+    .playground-panels {
+        grid-template-columns: 1fr;
+    }
+}
