@@ -1,38 +1,35 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Practice CSS combinators and see which HTML elements they match." />
-    <title>CSS Selector Playground | Web Design I</title>
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="css/navigation.css" />
-  </head>
-  <body>
-    <header class="site-header">
-      <div class="container header-inner">
-        <a class="brand" href="index.html">{ CSS } <span>Selector Reference</span></a>
-        <nav class="site-nav" aria-label="Main navigation"><a href="index.html">CSS Reference</a><a href="playground.html" aria-current="page">Playground</a></nav>
-      </div>
-    </header>
-    <main id="top" class="container">
-      <section class="hero" aria-labelledby="page-title">
-        <p class="eyebrow">Try it yourself</p>
-        <h1 id="page-title">CSS Selector Playground</h1>
-        <p class="lede">Choose a relationship selector and see which HTML elements it matches.</p>
-      </section>
-      <section class="playground" aria-labelledby="playground-heading">
-        <div class="section-heading">
-          <div>
-            <p class="eyebrow">Interactive examples</p>
-            <h2 id="playground-heading">Explore CSS selectors</h2>
-          </div>
-        </div>
-        <div id="selector-playground"></div>
-      </section>
-    </main>
-    <footer class="container footer">CSS Selector Reference · Web Design I · Built for learning and experimentation.</footer>
-    <script src="js/selectors.js" defer></script>
-    <script src="js/playground.js" defer></script>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Practice CSS combinators and see which HTML elements they match." />
+  <title>CSS Selector Playground | Web Design I</title>
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/navigation.css" />
+  <link rel="stylesheet" href="css/playground-phase1.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">{ CSS } <span>Selector Reference</span></a>
+      <nav class="site-nav" aria-label="Main navigation"><a href="index.html">CSS Reference</a><a href="playground.html" aria-current="page">Playground</a></nav>
+    </div>
+  </header>
+  <main id="top" class="container">
+    <section class="hero" aria-labelledby="page-title">
+      <p class="eyebrow">Try it yourself</p>
+      <h1 id="page-title">CSS Selector Playground</h1>
+      <p class="lede">Choose a lesson category and see how CSS selectors match different HTML examples.</p>
+    </section>
+    <section class="playground" aria-labelledby="playground-heading">
+      <div class="section-heading"><div><p class="eyebrow">Interactive examples</p><h2 id="playground-heading">Explore CSS selectors</h2></div></div>
+      <div id="selector-playground"></div>
+    </section>
+  </main>
+  <footer class="container footer">CSS Selector Reference · Web Design I · Built for learning and experimentation.</footer>
+  <script src="js/selectors.js" defer></script>
+  <script src="js/playground-examples.js" defer></script>
+  <script src="js/playground.js" defer></script>
+</body>
 </html>
