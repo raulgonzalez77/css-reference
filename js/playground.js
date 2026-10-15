@@ -9,6 +9,8 @@ if (playground) {
         .entries;
 
     const select = node('select', 'playground-select');
+    // Plain-English explanation for the selected CSS selector
+    const plainEnglish = node('p', 'playground-explanation');
 
     selectors.forEach(([selector, title]) => {
         const option = node('option', '', `${selector} — ${title}`);
@@ -52,7 +54,7 @@ sourcePanel.append(sourceTitle, source);
 previewPanel.append(previewTitle, example);
 
 panels.append(cssPanel, sourcePanel, previewPanel);
-playground.append(select, panels, result);
+playground.append(select, plainEnglish, panels, result);
 
 const sampleHTML = `<div>
   <p>First paragraph</p>
@@ -75,6 +77,20 @@ function updatePlayground() {
     example.innerHTML = sampleHTML;
 
     const selector = select.value;
+
+
+    // Find the selected entry in our shared selector library
+    const selectedEntry = selectors.find(entry => entry[0] === selector);
+
+    if (selectedEntry) {
+        const explanation = selectedEntry[3];
+
+        plainEnglish.replaceChildren(
+            node('strong', '', 'In plain English: '),
+            document.createTextNode(explanation)
+        );
+    }
+
 
 const cssCode = `${selector} {
     background-color: #fef08a;
