@@ -378,3 +378,135 @@ p code {
     font-size: 0.8rem;
   }
 }
+
+
+
+
+/* =========================================
+   CSS Selector Playground
+========================================= */
+
+.playground {
+    margin: 40px 0 60px;
+}
+
+#selector-playground {
+    margin-top: 24px;
+}
+
+/* Selector dropdown */
+
+.playground-select {
+    display: block;
+    width: 100%;
+    max-width: 460px;
+    padding: 12px 16px;
+    margin-bottom: 24px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #1e293b;
+    font: inherit;
+    font-size: 1rem;
+}
+
+/* Two-column layout */
+
+.playground-panels {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    align-items: stretch;
+}
+
+.playground-panel {
+    min-width: 0;
+    padding: 20px;
+    border: 1px solid #dbe2ea;
+    border-radius: 12px;
+    background-color: #fff;
+}
+
+.playground-panel-title {
+    margin: 0 0 18px;
+    color: #475569;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+/* HTML source */
+
+.playground-source {
+    margin: 0;
+    padding: 18px;
+    overflow-x: auto;
+    border-radius: 8px;
+    background-color: #f1f5f9;
+    color: #1e293b;
+    font-family: Consolas, Monaco, monospace;
+    font-size: 0.875rem;
+    line-height: 1.8;
+    white-space: pre;
+}
+
+.playground-code-line {
+    display: block;
+    white-space: pre;
+}
+
+/* Highlight matching source lines */
+
+.playground-source-match {
+    background-color: #fef08a;
+    color: #713f12;
+    border-radius: 3px;
+}
+
+/* Live preview */
+
+.playground-example {
+    min-height: 250px;
+    line-height: 1.7;
+}
+
+.playground-example p {
+    margin: 10px 0;
+}
+
+.playground-example table {
+    border-collapse: collapse;
+}
+
+.playground-example td {
+    padding: 8px 12px;
+    border: 1px solid #cbd5e1;
+}
+
+/* Highlight matched HTML elements */
+
+.playground-match {
+    background-color: #fef08a;
+    outline: 2px solid #eab308;
+    outline-offset: 2px;
+    border-radius: 3px;
+}
+
+/* Match counter */
+
+.playground-result {
+    margin-top: 20px;
+    padding: 12px 16px;
+    border-radius: 8px;
+    background-color: #eff6ff;
+    color: #1d4ed8;
+    font-weight: 700;
+}
+
+/* Responsive layout */
+
+@media (max-width: 800px) {
+    .playground-panels {
+        grid-template-columns: 1fr;
+    }
+}
