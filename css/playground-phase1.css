@@ -12,3 +12,7 @@
 .playground-source-match { background:#fef08a; color:#713f12; }
 .playground-match { background:#fef08a; outline:2px solid #eab308; outline-offset:2px; }
 @media(max-width:1000px) { .playground-panels { grid-template-columns:1fr; } }
+
+/* Link demonstrations: preserve recognizable link behavior. */
+.playground-example a { display:inline-block; margin:6px 12px 6px 0; padding:4px 6px; border-radius:3px; text-decoration:underline; }
+.playground-example a:focus-visible { outline-offset:3px; }

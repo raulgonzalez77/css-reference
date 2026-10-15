@@ -25,6 +25,16 @@ const playgroundGroups = [
     ['p:first-of-type', `<div>\n  <h2>Heading first</h2>\n  <p>First paragraph</p>\n  <p>Second paragraph</p>\n</div>`],
     ['li:nth-child(1)', `<ul>\n  <li>First item</li>\n  <li>Second item</li>\n  <li>Third item</li>\n</ul>`]
   ]},
+  {id:'links',name:'Links & Navigation',examples:[
+    ['a', `<p>These are hyperlinks:</p>\n<a href="https://example.com" target="_blank" rel="noopener noreferrer">Example.com</a>\n<a href="https://www.wikipedia.org" target="_blank" rel="noopener noreferrer">Wikipedia</a>\n<p>This paragraph is not a link.</p>`],
+    ['a[target]', `<p>Compare links with and without target:</p>\n<a href="https://example.com" target="_blank" rel="noopener noreferrer">Opens in a new tab</a>\n<a href="https://example.org" target="_self">Has target _self</a>\n<a href="https://www.wikipedia.org">No target attribute</a>`],
+    ['a[target="_blank"]', `<p>Only the first link has target="_blank":</p>\n<a href="https://example.com" target="_blank" rel="noopener noreferrer">New tab (_blank)</a>\n<a href="https://example.org" target="_self">Same tab (_self)</a>\n<a href="https://www.wikipedia.org">No target attribute</a>`],
+    ['a:hover', `<p>Move your mouse over either link:</p>\n<a href="https://example.com" target="_blank" rel="noopener noreferrer">Example.com</a>\n<a href="https://www.wikipedia.org" target="_blank" rel="noopener noreferrer">Wikipedia.org</a>`],
+    ['a:active', `<p>Press and hold a link with your mouse:</p>\n<a href="https://example.com" target="_blank" rel="noopener noreferrer">Press and hold here</a>\n<a href="https://www.wikipedia.org" target="_blank" rel="noopener noreferrer">Or try this link</a>`],
+    ['a:focus', `<p>Press Tab until a link receives keyboard focus:</p>\n<a href="https://example.com" target="_blank" rel="noopener noreferrer">First link</a>\n<a href="https://www.wikipedia.org" target="_blank" rel="noopener noreferrer">Second link</a>`],
+    ['a:link', `<p>Unvisited links use the :link style:</p>\n<a href="https://example.com" target="_blank" rel="noopener noreferrer">Example.com</a>\n<a href="https://www.wikipedia.org" target="_blank" rel="noopener noreferrer">Wikipedia.org</a>`],
+    ['a:visited', `<p>Open a link in a new tab, then return here:</p>\n<a href="https://example.com" target="_blank" rel="noopener noreferrer">Visit Example.com</a>\n<a href="https://www.wikipedia.org" target="_blank" rel="noopener noreferrer">Visit Wikipedia.org</a>`]
+  ]},
   {id:'forms',name:'Forms (Later in Semester)',examples:[
     [':checked', `<label><input type="checkbox" checked> Email updates</label>\n<label><input type="checkbox"> Text updates</label>`],
     [':disabled', `<button>Available</button>\n<button disabled>Unavailable</button>`],
