@@ -414,7 +414,7 @@ p code {
 
 .playground-panels {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 20px;
     align-items: stretch;
 }
@@ -505,7 +505,7 @@ p code {
 
 /* Responsive layout */
 
-@media (max-width: 800px) {
+@media (max-width: 1000px) {
     .playground-panels {
         grid-template-columns: 1fr;
     }

@@ -32,8 +32,14 @@ if (playground) {
 
 const panels = node('div', 'playground-panels');
 
+const cssPanel = node('div', 'playground-panel');
 const sourcePanel = node('div', 'playground-panel');
 const previewPanel = node('div', 'playground-panel');
+
+const cssTitle = node('h3', 'playground-panel-title', 'CSS CODE');
+const cssSource = node('pre', 'playground-source');
+
+cssPanel.append(cssTitle, cssSource);
 
 const sourceTitle = node('h3', 'playground-panel-title', 'HTML SOURCE');
 const previewTitle = node('h3', 'playground-panel-title', 'LIVE PREVIEW');
@@ -45,8 +51,7 @@ const result = node('p', 'playground-result');
 sourcePanel.append(sourceTitle, source);
 previewPanel.append(previewTitle, example);
 
-panels.append(sourcePanel, previewPanel);
-//playground.append(panels, result);
+panels.append(cssPanel, sourcePanel, previewPanel);
 playground.append(select, panels, result);
 
 const sampleHTML = `<div>
@@ -70,6 +75,15 @@ function updatePlayground() {
     example.innerHTML = sampleHTML;
 
     const selector = select.value;
+
+const cssCode = `${selector} {
+    background-color: #fef08a;
+    outline: 2px solid #eab308;
+}`;
+
+const cssCodeElement = node('code', '', cssCode);
+cssSource.replaceChildren(cssCodeElement);
+
     const matches = [...example.querySelectorAll(selector)];
 
     matches.forEach(element => {
