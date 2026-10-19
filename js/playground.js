@@ -37,7 +37,8 @@ if (playground) {
   filterOptions.forEach(group => {
     const label = make('label','playground-filter');
     const input = make('input'); input.type='radio';input.name='playground-category';input.value=group.id;
-    input.checked=group.id==='basics';
+    //input.checked=group.id==='basics';
+    input.checked=group.id==='all';
     label.append(input,document.createTextNode(group.name));filters.append(label);
   });
   const selectLabel=make('label','playground-filter-label','Choose a CSS selector');
@@ -123,5 +124,6 @@ if (playground) {
   }
   filters.addEventListener('change',e=>{if(e.target.matches('input[type="radio"]')) showOptions(e.target.value);});
   select.addEventListener('change',update);
-  showOptions('basics');
+  //showOptions('basics');
+  showOptions('all');
 }
