@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore HTML form fields and native browser validation.">
+  <title>HTML Forms Playground | Web Design I</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/navigation.css">
+  <link rel="stylesheet" href="css/forms-playground.css">
+  <script src="js/forms-examples.js" defer></script>
+  <script src="js/forms-playground.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">{ CSS } <span>Selector Reference</span></a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html">CSS Reference</a>
+        <a href="playground.html">CSS Playground</a>
+        <a href="forms-playground.html" aria-current="page">Forms Playground</a>
+      </nav>
+    </div>
+  </header>
+  <main id="top" class="container">
+    <section class="hero" aria-labelledby="page-title">
+      <p class="eyebrow">Learn by experimenting</p>
+      <h1 id="page-title">HTML Forms Playground</h1>
+      <p class="lede">Explore one form field at a time. Read its HTML, try it in the browser, and learn what it does in plain English.</p>
+    </section>
+    <section class="forms-lab" aria-labelledby="forms-lab-title">
+      <h2 id="forms-lab-title">Explore form fields</h2>
+      <div class="forms-controls">
+        <label for="forms-lesson">Choose a form element</label>
+        <select id="forms-lesson"></select>
+      </div>
+      <p id="forms-explanation" class="forms-explanation"></p>
+      <div class="forms-try" aria-labelledby="forms-try-heading">
+        <h3 id="forms-try-heading">Try this</h3>
+        <p id="forms-instruction"></p>
+      </div>
+      <div class="forms-panels">
+        <section class="forms-panel" aria-labelledby="forms-html-heading">
+          <h3 id="forms-html-heading">HTML SOURCE</h3>
+          <pre><code id="forms-html"></code></pre>
+        </section>
+        <section class="forms-panel" aria-labelledby="forms-preview-heading">
+          <h3 id="forms-preview-heading">LIVE PREVIEW</h3>
+          <div id="forms-preview"></div>
+          <p id="forms-status" role="status" aria-live="polite"></p>
+        </section>
+      </div>
+      <p class="forms-note">This is a practice environment. Form data is not sent or saved. Browser validation messages may look different depending on your browser.</p>
+    </section>
+  </main>
+  <footer class="container footer">HTML Forms Playground · Web Design I · Built for learning and experimentation.</footer>
+</body>
+</html>

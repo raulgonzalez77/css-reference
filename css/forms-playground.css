@@ -1,0 +1,24 @@
+/* Independent Forms Playground styles. Existing CSS pages are unaffected. */
+.forms-lab { margin: 2rem 0 4rem; }
+.forms-controls { display: grid; gap: .5rem; max-width: 34rem; margin: 1.5rem 0; }
+.forms-controls label { font-weight: 700; }
+.forms-controls select { padding: .7rem; border: 1px solid #7b8794; border-radius: .35rem; background: white; color: #182536; font: inherit; }
+.forms-explanation { margin: 1rem 0; line-height: 1.65; }
+.forms-try { border-left: 4px solid #0033a0; padding: .75rem 1rem; background: #f0f5ff; margin: 1.25rem 0; }
+.forms-try h3 { margin: 0 0 .4rem; font-size: 1rem; }
+.forms-try p { margin: 0; }
+.forms-panels { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.forms-panel { border: 1px solid #cbd5e1; border-radius: .6rem; padding: 1.2rem; min-width: 0; }
+.forms-panel h3 { margin: 0 0 1rem; font-size: .9rem; letter-spacing: .04em; }
+.forms-panel pre { overflow-x: auto; background: #f5f7fa; padding: 1rem; border-radius: .35rem; white-space: pre; line-height: 1.65; }
+.forms-panel code { font-size: .9rem; }
+#forms-preview form, #forms-preview { display: grid; gap: .8rem; align-content: start; }
+#forms-preview label { display: block; font-weight: 600; margin-top: .4rem; }
+#forms-preview input:not([type="color"]), #forms-preview textarea { box-sizing: border-box; width: 100%; max-width: 26rem; padding: .65rem; border: 1px solid #7b8794; border-radius: .35rem; font: inherit; }
+#forms-preview input[type="color"] { width: 5rem; height: 3rem; }
+#forms-preview button { justify-self: start; padding: .65rem 1.2rem; border: 0; border-radius: .35rem; background: #0033a0; color: white; font: inherit; cursor: pointer; }
+#forms-preview :focus-visible, .forms-controls :focus-visible { outline: 3px solid #e8a100; outline-offset: 3px; }
+#forms-status { margin: .75rem 0 0; font-weight: 600; }
+#forms-status:empty { display: none; }
+.forms-note { color: #526173; font-size: .9rem; margin-top: 1rem; }
+@media (max-width: 750px) { .forms-panels { grid-template-columns: 1fr; } }
