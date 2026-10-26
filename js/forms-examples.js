@@ -116,5 +116,53 @@ const formLessons = [
   <label><input type="radio" name="role" value="welcome"> Welcome desk</label>
   <label><input type="radio" name="role" value="cleanup"> Cleanup</label>
 </fieldset>`
+  },
+  {
+    id: 'required', title: 'Required text field', group: 'validation',
+    plain: 'The required attribute tells the browser that this field must not be empty when submitting a form. The browser checks it automatically unless novalidate is present.',
+    tryThis: 'Leave First Name blank and click Test Submission. Then enter a name and try again. Enable novalidate and repeat with an empty field.',
+    html: `<form>
+  <label for="volunteer-name">First Name</label>
+  <input type="text" id="volunteer-name" name="firstName" required>
+</form>`
+  },
+  {
+    id: 'length', title: 'Minimum and maximum length', group: 'validation',
+    plain: 'minlength and maxlength set character-count limits for typed text. maxlength prevents typing beyond the limit; minlength is checked during normal validation of user-edited input.',
+    tryThis: 'Type only two characters and test. Then type at least four. Try typing more than ten characters. Turn on novalidate and test again.',
+    html: `<form>
+  <label for="nickname">Volunteer Nickname (4–10 characters)</label>
+  <input type="text" id="nickname" name="nickname" minlength="4" maxlength="10" required>
+</form>`
+  },
+  {
+    id: 'pattern', title: 'Pattern validation', group: 'validation',
+    plain: 'The pattern attribute asks the browser to check typed text against a specific format. This example requires exactly five digits.',
+    tryThis: 'Enter 123, then test. Try 12345 and test again. Now enable novalidate and try 123.',
+    html: `<form>
+  <label for="zip-code">ZIP Code (5 digits)</label>
+  <input type="text" id="zip-code" name="zipCode" inputmode="numeric" pattern="[0-9]{5}" title="Enter exactly five digits" required>
+</form>`
+  },
+  {
+    id: 'radio-required', title: 'Required radio group', group: 'validation',
+    plain: 'Radio buttons sharing a name form one choice group. Marking one required means the visitor must select an option from that group before a normal submission.',
+    tryThis: 'Test without choosing a role. Then choose one and test again. Compare with novalidate enabled.',
+    html: `<form>
+  <fieldset>
+    <legend>Participating In</legend>
+    <label><input type="radio" name="participation" value="fashion-show" required> Fashion Show</label>
+    <label><input type="radio" name="participation" value="donations"> Donations</label>
+    <label><input type="radio" name="participation" value="spectator"> Spectator</label>
+  </fieldset>
+</form>`
+  },
+  {
+    id: 'checkbox-required', title: 'Required checkbox', group: 'validation',
+    plain: 'A required checkbox must be checked. If you put required on every checkbox, every one must be checked; it does not mean choose at least one.',
+    tryThis: 'Try submitting without accepting the terms. Check the box and try again. Enable novalidate and repeat without checking it.',
+    html: `<form>
+  <label><input type="checkbox" name="terms" value="yes" required> I accept the volunteer terms</label>
+</form>`
   }
 ];

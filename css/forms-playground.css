@@ -31,3 +31,13 @@
 #forms-preview fieldset label { display: flex; align-items: center; gap: .15rem; margin: .65rem 0; font-weight: 400; }
 #forms-preview select { box-sizing: border-box; width: 100%; max-width: 26rem; padding: .65rem; border: 1px solid #7b8794; border-radius: .35rem; background: #fff; font: inherit; }
 #forms-preview input[type="file"] { max-width: 100%; }
+
+/* Phase 3: simulated submissions and native-validation comparison. */
+.forms-test-controls { display: flex; flex-wrap: wrap; gap: .85rem; align-items: center; margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid #cbd5e1; }
+.forms-test-controls .forms-novalidate-label { display: flex !important; align-items: center; gap: .5rem; font-weight: 500 !important; margin: 0 !important; }
+#forms-preview .forms-test-controls input[type="checkbox"] { width: auto; }
+#forms-test-submit, #forms-success-dialog button { padding: .65rem 1rem; border: 0; border-radius: .35rem; background: #0033a0; color: #fff; font: inherit; cursor: pointer; }
+#forms-success-dialog { border: 1px solid #9ca9bb; border-radius: .7rem; padding: 1.5rem; max-width: min(30rem, 90vw); box-shadow: 0 14px 48px #0003; }
+#forms-success-dialog::backdrop { background: #0008; }
+#forms-success-dialog h2 { margin-top: 0; }
+#forms-success-dialog :focus-visible, #forms-test-submit:focus-visible { outline: 3px solid #e8a100; outline-offset: 3px; }

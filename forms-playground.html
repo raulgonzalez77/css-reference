@@ -47,11 +47,21 @@
         <section class="forms-panel" aria-labelledby="forms-preview-heading">
           <h3 id="forms-preview-heading">LIVE PREVIEW</h3>
           <div id="forms-preview"></div>
+          <div class="forms-test-controls">
+            <label class="forms-novalidate-label"><input type="checkbox" id="forms-novalidate"> Disable native validation (<code>novalidate</code>)</label>
+            <button type="button" id="forms-test-submit">Test Submission</button>
+          </div>
           <p id="forms-status" role="status" aria-live="polite"></p>
         </section>
       </div>
       <p class="forms-note">This is a practice environment. Form data is not sent or saved. Browser validation messages may look different depending on your browser.</p>
     </section>
+    <dialog id="forms-success-dialog" aria-labelledby="forms-success-heading">
+      <h2 id="forms-success-heading">Success! (Simulation)</h2>
+      <p>The browser allowed this form submission. No data was sent or saved.</p>
+      <p id="forms-success-detail"></p>
+      <form method="dialog"><button type="submit">Close</button></form>
+    </dialog>
   </main>
   <footer class="container footer">HTML Forms Playground · Web Design I · Built for learning and experimentation.</footer>
 </body>
