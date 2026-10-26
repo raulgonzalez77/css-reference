@@ -8,11 +8,20 @@
   const status = document.querySelector('#forms-status');
   if (!select || !Array.isArray(formLessons)) return;
 
-  formLessons.forEach(lesson => {
-    const option = document.createElement('option');
-    option.value = lesson.id;
-    option.textContent = lesson.title;
-    select.append(option);
+  const lessonGroups = [
+    { id: 'basics', title: 'Basic Form Fields' },
+    { id: 'choices', title: 'Making Choices' }
+  ];
+  lessonGroups.forEach(group => {
+    const optgroup = document.createElement('optgroup');
+    optgroup.label = group.title;
+    formLessons.filter(lesson => (lesson.group || 'basics') === group.id).forEach(lesson => {
+      const option = document.createElement('option');
+      option.value = lesson.id;
+      option.textContent = lesson.title;
+      optgroup.append(option);
+    });
+    select.append(optgroup);
   });
 
   function showLesson() {
@@ -26,6 +35,13 @@
     htmlCode.textContent = lesson.html;
     preview.innerHTML = lesson.html; // Only fixed, locally authored examples are used here.
     status.textContent = '';
+    const fileInput = preview.querySelector('input[type="file"]');
+    if (fileInput) {
+      fileInput.addEventListener('change', () => {
+        const file = fileInput.files && fileInput.files[0];
+        status.textContent = file ? `Selected: ${file.name} (not uploaded).` : '';
+      });
+    }
     const form = preview.querySelector('form');
     if (form) {
       form.addEventListener('submit', event => {

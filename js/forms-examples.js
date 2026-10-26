@@ -62,4 +62,59 @@ const formLessons = [
     html: `<label for="about-you">Tell us about you</label>
 <textarea id="about-you" name="aboutYou" rows="5"></textarea>`
   }
+
+  ,{
+    id: 'radio', title: 'Radio buttons', group: 'choices',
+    plain: 'Radio buttons let someone choose one option from a group. Giving each radio button the same name connects them, while each value identifies the chosen option.',
+    tryThis: 'Choose Fashion Show, then Donations. Notice that selecting one clears the other. Click each label, too.',
+    html: `<fieldset>
+  <legend>Participating In</legend>
+  <label><input type="radio" name="participation" value="fashion-show"> Fashion Show</label>
+  <label><input type="radio" name="participation" value="donations"> Donations</label>
+  <label><input type="radio" name="participation" value="spectator"> Spectator</label>
+</fieldset>`
+  },
+  {
+    id: 'checkbox', title: 'Checkboxes', group: 'choices',
+    plain: 'Checkboxes let someone choose any number of options. A fieldset and legend tell visitors that these checkboxes belong together.',
+    tryThis: 'Select Morning and Evening together. Uncheck Morning. Compare this behavior with radio buttons.',
+    html: `<fieldset>
+  <legend>Times Available</legend>
+  <label><input type="checkbox" name="timeOfDay" value="morning"> Morning</label>
+  <label><input type="checkbox" name="timeOfDay" value="afternoon"> Afternoon</label>
+  <label><input type="checkbox" name="timeOfDay" value="evening"> Evening</label>
+</fieldset>`
+  },
+  {
+    id: 'select', title: 'Dropdown (select)', group: 'choices',
+    plain: 'A select menu presents a list of choices. Each option has a value that can be sent with the form. The first blank option asks the visitor to make a choice.',
+    tryThis: 'Open the menu and choose a T-shirt size. Notice the list closes after you choose. The custom-size behavior will come later with JavaScript.',
+    html: `<label for="t-shirt">T-shirt Size</label>
+<select id="t-shirt" name="shirtSize" required>
+  <option value="">Choose a size</option>
+  <option value="S">Small</option>
+  <option value="M">Medium</option>
+  <option value="L">Large</option>
+  <option value="XL">Extra Large</option>
+  <option value="CUSTOM">Custom</option>
+</select>`
+  },
+  {
+    id: 'file', title: 'File picker', group: 'choices',
+    plain: 'A file input lets someone choose a file on their device. The accept attribute suggests which kinds of files to show, but it is not a security check. Selecting a file does not upload it.',
+    tryThis: 'Open the file picker. If you have a practice PDF, select it and observe its filename. Nothing is uploaded or saved.',
+    html: `<label for="waiver">Volunteer Waiver (PDF)</label>
+<input type="file" id="waiver" name="waiver" accept=".pdf,application/pdf">`
+  },
+  {
+    id: 'fieldset', title: 'Fieldset and legend', group: 'choices',
+    plain: 'A fieldset groups related form controls. Its legend gives the group a name, which helps people understand what the options are about, including when using assistive technology.',
+    tryThis: 'Read the group heading, then use Tab and the arrow keys to move among the choices. Notice how the options belong to one question.',
+    html: `<fieldset>
+  <legend>Preferred Volunteer Role</legend>
+  <label><input type="radio" name="role" value="setup"> Event setup</label>
+  <label><input type="radio" name="role" value="welcome"> Welcome desk</label>
+  <label><input type="radio" name="role" value="cleanup"> Cleanup</label>
+</fieldset>`
+  }
 ];
