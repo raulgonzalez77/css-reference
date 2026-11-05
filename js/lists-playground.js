@@ -100,12 +100,9 @@
     // Fixed lesson templates and controlled options; no user-supplied HTML.
     preview.innerHTML = html;
 
-    // The <li> lesson changes only the source highlighting.
-    // Other lessons retain their existing outer-list preview outline.
-    if (lesson.mode !== 'list-items') {
-      const outerList = preview.querySelector('ul, ol');
-      if (outerList) outerList.classList.add('outer-list-preview');
-    }
+    // Keep the same preview appearance for both UL and LI lessons.
+    const outerList = preview.querySelector('ul, ol');
+    if (outerList) outerList.classList.add('outer-list-preview');
   }
 
   function loadLesson() {
