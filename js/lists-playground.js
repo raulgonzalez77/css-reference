@@ -73,29 +73,38 @@
   }
 
   function highlightListItemTags(html) {
-    // The list-items lesson has three simple sibling <li> elements.
-    let index = 0;
-    return html.replace(/<li>|<\/li>/g, tag => {
-      const itemIndex = Math.floor(index++ / 2);
+    // Highlight selected <li> and </li> tags in HTML Source only.
+    let tagIndex = 0;
+    let lastIndex = 0;
+    let result = '';
+    const tagPattern = /<\/?li\b[^>]*>/gi;
+
+    for (const match of html.matchAll(tagPattern)) {
+      result += escapeHtml(html.slice(lastIndex, match.index));
+      const itemIndex = Math.floor(tagIndex++ / 2);
       const selected = state.liFocus === 'all' || Number(state.liFocus) === itemIndex;
-      return selected ? `<span class="list-item-tag">${escapeHtml(tag)}</span>` : escapeHtml(tag);
-    });
+      const tag = escapeHtml(match[0]);
+      result += selected ? `<span class="list-item-tag">${tag}</span>` : tag;
+      lastIndex = match.index + match[0].length;
+    }
+    return result + escapeHtml(html.slice(lastIndex));
   }
 
   function updatePreview() {
-    const lesson = lessons.find(item=>item.id===select.value);
+    const lesson = lessons.find(item => item.id === select.value);
     const html = examples(lesson.mode);
-    source.innerHTML=lesson.mode === 'list-items'
-      ? highlightListItemTags(html).replace(/&lt;(\/?ul)&gt;/g, '<span class="outer-list-tag">&lt;$1&gt;</span>')
+    source.innerHTML = lesson.mode === 'list-items'
+      ? highlightListItemTags(html)
       : highlightOuterListTags(html);
-    // All markup is generated from fixed lesson templates and controlled options, not user HTML.
-    preview.innerHTML=html;
-    const outerList = preview.querySelector('ul, ol');
-    if (outerList) outerList.classList.add('outer-list-preview');
-    if (lesson.mode === 'list-items') {
-      preview.querySelectorAll('li').forEach((li, index) => {
-        if (state.liFocus === 'all' || Number(state.liFocus) === index) li.classList.add('list-item-preview');
-      });
+
+    // Fixed lesson templates and controlled options; no user-supplied HTML.
+    preview.innerHTML = html;
+
+    // The <li> lesson changes only the source highlighting.
+    // Other lessons retain their existing outer-list preview outline.
+    if (lesson.mode !== 'list-items') {
+      const outerList = preview.querySelector('ul, ol');
+      if (outerList) outerList.classList.add('outer-list-preview');
     }
   }
 
