@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore HTML lists through interactive examples.">
+  <title>HTML Lists Playground</title>
+  <link rel="stylesheet" href="css/lists-playground.css">
+  <script src="js/lists-examples.js" defer></script>
+  <script src="js/lists-playground.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <p class="eyebrow">Web Design I · Interactive Reference</p>
+      <h1>HTML Lists Playground</h1>
+      <p>Explore how HTML organizes information. Choose a lesson, read the explanation, and experiment with the live example.</p>
+      <nav class="site-nav" aria-label="Playground navigation">
+        <a href="index.html">CSS Reference</a>
+        <a href="playground.html">CSS Playground</a>
+        <a href="forms-playground.html">Forms Playground</a>
+        <a href="lists-playground.html" aria-current="page">Lists Playground</a>
+      </nav>
+    </div>
+  </header>
+  <main class="container">
+    <section class="lesson-picker" aria-labelledby="picker-heading">
+      <h2 id="picker-heading">Choose a lesson</h2>
+      <label for="lesson-select">HTML list example</label>
+      <select id="lesson-select"></select>
+    </section>
+    <section class="lesson-intro" aria-live="polite" aria-atomic="true">
+      <p class="eyebrow" id="lesson-category"></p>
+      <h2 id="lesson-title"></h2>
+      <p><strong>In Plain English:</strong> <span id="plain-english"></span></p>
+      <div class="try-this"><h3>Try This</h3><p id="try-this"></p></div>
+    </section>
+    <section class="experiment" aria-labelledby="experiment-heading">
+      <h2 id="experiment-heading">Experiment</h2>
+      <div id="experiment-controls"></div>
+    </section>
+    <div class="panels">
+      <section class="panel" aria-labelledby="source-heading">
+        <div class="panel-heading"><h2 id="source-heading">HTML Source</h2><button type="button" id="copy-source">Copy HTML</button></div>
+        <pre><code id="html-source"></code></pre>
+        <p class="status" id="copy-status" role="status"></p>
+      </section>
+      <section class="panel" aria-labelledby="preview-heading">
+        <h2 id="preview-heading">Live Preview</h2>
+        <div id="live-preview" class="preview"></div>
+      </section>
+    </div>
+    <aside class="teaching-note"><h2>Remember</h2><p>Use a list when items belong together. Use an ordered list when the sequence matters, and an unordered list when it does not. Lists organize content; CSS can change how they look.</p></aside>
+  </main>
+  <footer class="container site-footer"><p>HTML Lists Playground · Practice first, then build.</p></footer>
+</body>
+</html>

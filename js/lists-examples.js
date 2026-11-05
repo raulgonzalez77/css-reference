@@ -1,0 +1,10 @@
+'use strict';
+// Lesson content is separate from the UI so new examples are easy to add.
+window.listLessons = [
+  {id:'unordered', category:'List Basics', title:'Unordered List', plain:'Use an unordered list when the items belong together, but their order does not matter. The browser usually shows bullets.', tryThis:'Switch between bullet styles. Notice that the items stay the same.', mode:'unordered'},
+  {id:'ordered', category:'List Basics', title:'Ordered List', plain:'Use an ordered list when the sequence matters, like instructions or steps. The browser normally numbers the items.', tryThis:'Change the starting number and watch the first step change.', mode:'ordered'},
+  {id:'alphabetical', category:'Numbering Styles', title:'Alphabetical Lists', plain:'An ordered list can use letters instead of numbers. Lowercase and uppercase letters are both available.', tryThis:'Switch between lowercase a, b, c and uppercase A, B, C.', mode:'alphabetical'},
+  {id:'roman', category:'Numbering Styles', title:'Roman Numerals', plain:'An ordered list can also count using Roman numerals, such as i, ii, iii or I, II, III.', tryThis:'Switch between lowercase and uppercase Roman numerals.', mode:'roman'},
+  {id:'nested', category:'List Structure', title:'Nested Lists', plain:'A nested list is a list placed inside one of the items of another list. It helps show which details belong to a larger topic.', tryThis:'Show and hide the nested donation options. Notice where the second <ul> belongs in the HTML.', mode:'nested'},
+  {id:'description', category:'List Structure', title:'Description Lists', plain:'A description list pairs terms with explanations. It uses <dl> for the list, <dt> for each term, and <dd> for its description.', tryThis:'Switch between short and detailed descriptions. Notice the repeated <dt> and <dd> elements.', mode:'description'}
+];
