@@ -1,56 +1,81 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Explore HTML tables through interactive examples.">
-  <title>HTML Tables Playground | Web Design I</title>
-  <link rel="stylesheet" href="css/styles.css">
-  <link rel="stylesheet" href="css/navigation.css">
-  <link rel="stylesheet" href="css/tables-playground.css">
-  <script src="js/tables-examples.js" defer></script>
-  <script src="js/tables-playground.js" defer></script>
-</head>
-<body>
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="index.html">{ CSS } <span>Selector Reference</span></a>
-      <nav class="site-nav" aria-label="Main navigation">
-        <a href="index.html">CSS Reference</a>
-        <a href="playground.html">CSS Playground</a>
-        <a href="forms-playground.html">Forms Playground</a>
-        <a href="lists-playground.html">Lists Playground</a>
-        <a href="tables-playground.html" aria-current="page">Tables Playground</a>
-      </nav>
-    </div>
-  </header>
-  <main id="top" class="container">
-    <section class="hero" aria-labelledby="page-title">
-      <p class="eyebrow">Try it yourself</p>
-      <h1 id="page-title">HTML Tables Playground</h1>
-      <p class="lede">See how rows, columns, and headings organize a schedule. Choose an example, try an experiment, and compare the HTML with what the browser displays.</p>
-    </section>
-    <section class="playground" aria-labelledby="playground-heading">
-      <div class="section-heading"><div><p class="eyebrow">Interactive examples</p><h2 id="playground-heading">Explore HTML tables</h2></div></div>
-      <div class="lesson-picker">
-        <div class="picker-grid">
-          <div class="control"><label for="lesson-select">HTML table example</label><select id="lesson-select"></select></div>
-          <div class="control"><label for="experiment-select" id="experiment-label">Experiment</label><select id="experiment-select"></select></div>
-        </div>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Explore HTML tables through interactive examples." />
+    <title>HTML Tables Playground | Web Design I</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/navigation.css" />
+    <link rel="stylesheet" href="css/tables-playground.css" />
+    <script src="js/tables-examples.js" defer></script>
+    <script src="js/tables-playground.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="brand" href="index.html">{ CSS } <span>Selector Reference</span></a>
+        <nav class="site-nav" aria-label="Main navigation">
+          <a href="index.html">CSS Reference</a>
+          <a href="playground.html">CSS Playground</a>
+          <a href="forms-playground.html">Forms Playground</a>
+          <a href="lists-playground.html">Lists Playground</a>
+          <a href="tables-playground.html" aria-current="page">Tables Playground</a>
+        </nav>
       </div>
-      <section class="lesson-intro" aria-live="polite" aria-atomic="true">
-        <p class="eyebrow" id="lesson-category"></p>
-        <h3 id="lesson-title"></h3>
-        <p><strong>In Plain English:</strong> <span id="plain-english"></span></p>
-        <div class="try-this"><h4>Try This</h4><p id="try-this"></p></div>
+    </header>
+    <main id="top" class="container">
+      <section class="hero" aria-labelledby="page-title">
+        <p class="eyebrow">Try it yourself</p>
+        <h1 id="page-title">HTML Tables Playground</h1>
+        <p class="lede">See how rows, columns, and headings organize a schedule. Choose an example, try an experiment, and compare the HTML with what the browser displays.</p>
       </section>
-      <div class="panels">
-        <section class="panel" aria-labelledby="source-heading"><h3 id="source-heading">HTML Source</h3><p class="panel-hint">Highlighted code relates to the experiment.</p><pre><code id="html-source"></code></pre></section>
-        <section class="panel" aria-labelledby="preview-heading"><h3 id="preview-heading">Live Preview</h3><p class="panel-hint">Highlighted areas show the selected structure.</p><div id="live-preview" class="preview"></div></section>
-      </div>
-      <aside class="teaching-note"><h3>Remember</h3><p>Use tables for information that belongs in rows and columns, such as a weekly schedule. Don't use tables just to arrange a page's layout; CSS handles layout. Table headings help people understand what each cell means.</p></aside>
-    </section>
-  </main>
-  <footer class="container footer">HTML Tables Playground · Web Design I · Built for learning and experimentation.</footer>
-</body>
+      <section class="playground" aria-labelledby="playground-heading">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Interactive examples</p>
+            <h2 id="playground-heading">Explore HTML tables</h2>
+          </div>
+        </div>
+        <div class="lesson-picker">
+          <div class="picker-grid">
+            <div class="control">
+              <label for="lesson-select">HTML table example</label
+              ><select id="lesson-select"></select>
+            </div>
+            <div class="control">
+              <label for="experiment-select" id="experiment-label">Experiment</label
+              ><select id="experiment-select"></select>
+            </div>
+          </div>
+        </div>
+        <section class="lesson-intro" aria-live="polite" aria-atomic="true">
+          <p class="eyebrow" id="lesson-category"></p>
+          <h3 id="lesson-title"></h3>
+          <p><strong>In Plain English:</strong> <span id="plain-english"></span></p>
+          <div class="try-this">
+            <h4>Try This</h4>
+            <p id="try-this"></p>
+          </div>
+        </section>
+        <div class="panels">
+          <section class="panel" aria-labelledby="source-heading">
+            <h3 id="source-heading">HTML Source</h3>
+            <p class="panel-hint">Highlighted code relates to the experiment.</p>
+            <pre><code id="html-source"></code></pre>
+          </section>
+          <section class="panel" aria-labelledby="preview-heading">
+            <h3 id="preview-heading">Live Preview</h3>
+            <p class="panel-hint">Highlighted areas show the selected structure.</p>
+            <div id="live-preview" class="preview"></div>
+          </section>
+        </div>
+        <aside class="teaching-note">
+          <h3>Remember</h3>
+          <p>Use tables for information that belongs in rows and columns, such as a weekly schedule. Don't use tables just to arrange a page's layout; CSS handles layout. Table headings help people understand what each cell means.</p>
+        </aside>
+      </section>
+    </main>
+    <footer class="container footer">HTML Tables Playground · Web Design I · Built for learning and experimentation.</footer>
+  </body>
 </html>
