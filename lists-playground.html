@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Explore HTML lists through interactive examples.">
-  <title>HTML Lists Playground</title>
+  <title>HTML Lists Playground | Web Design I</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/navigation.css">
   <link rel="stylesheet" href="css/lists-playground.css">
   <script src="js/lists-examples.js" defer></script>
   <script src="js/lists-playground.js" defer></script>
 </head>
 <body>
   <header class="site-header">
-    <div class="container">
-      <p class="eyebrow">Web Design I · Interactive Reference</p>
-      <h1>HTML Lists Playground</h1>
-      <p>Explore how HTML organizes information. Choose a lesson, read the explanation, and experiment with the live example.</p>
-      <nav class="site-nav" aria-label="Playground navigation">
+    <div class="container header-inner">
+      <a class="brand" href="index.html">{ CSS } <span>Selector Reference</span></a>
+      <nav class="site-nav" aria-label="Main navigation">
         <a href="index.html">CSS Reference</a>
         <a href="playground.html">CSS Playground</a>
         <a href="forms-playground.html">Forms Playground</a>
@@ -23,38 +23,33 @@
       </nav>
     </div>
   </header>
-  <main class="container">
-    <section class="lesson-picker" aria-labelledby="picker-heading">
-      <h2 id="picker-heading">Choose a lesson</h2>
-      <div class="picker-grid">
-        <div class="control">
-          <label for="lesson-select">HTML list example</label>
-          <select id="lesson-select"></select>
-        </div>
-        <div class="control">
-          <label for="experiment-select">Experiment</label>
-          <select id="experiment-select"></select>
+  <main id="top" class="container">
+    <section class="hero" aria-labelledby="page-title">
+      <p class="eyebrow">Try it yourself</p>
+      <h1 id="page-title">HTML Lists Playground</h1>
+      <p class="lede">Explore how HTML organizes information. Choose a lesson, read the explanation, and experiment with the live example.</p>
+    </section>
+    <section class="playground" aria-labelledby="playground-heading">
+      <div class="section-heading"><div><p class="eyebrow">Interactive examples</p><h2 id="playground-heading">Explore HTML lists</h2></div></div>
+      <div class="lesson-picker">
+        <div class="picker-grid">
+          <div class="control"><label for="lesson-select">HTML list example</label><select id="lesson-select"></select></div>
+          <div class="control"><label for="experiment-select">Experiment</label><select id="experiment-select"></select></div>
         </div>
       </div>
-    </section>
-    <section class="lesson-intro" aria-live="polite" aria-atomic="true">
-      <p class="eyebrow" id="lesson-category"></p>
-      <h2 id="lesson-title"></h2>
-      <p><strong>In Plain English:</strong> <span id="plain-english"></span></p>
-      <div class="try-this"><h3>Try This</h3><p id="try-this"></p></div>
-    </section>
-    <div class="panels">
-      <section class="panel" aria-labelledby="source-heading">
-        <div class="panel-heading"><h2 id="source-heading">HTML Source</h2></div>
-        <pre><code id="html-source"></code></pre>
+      <section class="lesson-intro" aria-live="polite" aria-atomic="true">
+        <p class="eyebrow" id="lesson-category"></p>
+        <h3 id="lesson-title"></h3>
+        <p><strong>In Plain English:</strong> <span id="plain-english"></span></p>
+        <div class="try-this"><h4>Try This</h4><p id="try-this"></p></div>
       </section>
-      <section class="panel" aria-labelledby="preview-heading">
-        <h2 id="preview-heading">Live Preview</h2>
-        <div id="live-preview" class="preview"></div>
-      </section>
-    </div>
-    <aside class="teaching-note"><h2>Remember</h2><p>Use a list when items belong together. Use an ordered list when the sequence matters, and an unordered list when it does not. Lists organize content; CSS can change how they look.</p></aside>
+      <div class="panels">
+        <section class="panel" aria-labelledby="source-heading"><h3 id="source-heading">HTML Source</h3><pre><code id="html-source"></code></pre></section>
+        <section class="panel" aria-labelledby="preview-heading"><h3 id="preview-heading">Live Preview</h3><div id="live-preview" class="preview"></div></section>
+      </div>
+      <aside class="teaching-note"><h3>Remember</h3><p>Use a list when items belong together. Use an ordered list when the sequence matters, and an unordered list when it does not. Lists organize content; CSS can change how they look.</p></aside>
+    </section>
   </main>
-  <footer class="container site-footer"><p>HTML Lists Playground · Practice first, then build.</p></footer>
+  <footer class="container footer">HTML Lists Playground · Web Design I · Built for learning and experimentation.</footer>
 </body>
 </html>
