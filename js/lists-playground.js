@@ -3,7 +3,7 @@
   const lessons = window.listLessons;
   const $ = id => document.getElementById(id);
   const select = $('lesson-select');
-  const controls = $('experiment-controls');
+  const experimentSelect = $('experiment-select');
   const source = $('html-source');
   const preview = $('live-preview');
   let state = {};
@@ -33,23 +33,50 @@
     return `<dl>\n  <dt>Runway volunteer</dt>\n  <dd>${detailed ? 'Models wedding clothing during the fashion show.' : 'Models clothing.'}</dd>\n  <dt>Donor</dt>\n  <dd>${detailed ? 'Contributes clothing or money to support the event.' : 'Contributes to the event.'}</dd>\n</dl>`;
   }
 
-  function addSelect(label, choices, current, callback) {
-    const wrapper = document.createElement('div'); wrapper.className='control';
-    const id = 'control-' + controls.children.length;
-    const lbl = document.createElement('label'); lbl.htmlFor=id; lbl.textContent=label;
-    const dropdown = document.createElement('select'); dropdown.id=id;
-    choices.forEach(([value,text])=>{const option=document.createElement('option');option.value=value;option.textContent=text;dropdown.append(option);});
-    dropdown.value=current;
-    dropdown.addEventListener('change',()=>{callback(dropdown.value);updatePreview();});
-    wrapper.append(lbl,dropdown);controls.append(wrapper);
+  function configureExperiment(label, choices, current, callback) {
+    const fieldLabel = document.querySelector('label[for="experiment-select"]');
+    fieldLabel.textContent = `Experiment: ${label}`;
+    experimentSelect.replaceChildren();
+    choices.forEach(([value, text]) => {
+      const option = document.createElement('option');
+      option.value = value;
+      option.textContent = text;
+      experimentSelect.append(option);
+    });
+    experimentSelect.value = current;
+    experimentSelect.onchange = () => {
+      callback(experimentSelect.value);
+      updatePreview();
+    };
+  }
+
+  function highlightOuterListTags(html) {
+    // Highlight only the opening and closing tags of the outermost UL/OL.
+    let depth = 0;
+    let lastIndex = 0;
+    let result = '';
+    const tagPattern = /<\/?(?:ul|ol)\b[^>]*>/gi;
+    for (const match of html.matchAll(tagPattern)) {
+      result += escapeHtml(html.slice(lastIndex, match.index));
+      const closing = match[0].startsWith('</');
+      if (!closing) depth++;
+      const outer = closing ? depth === 1 : depth === 1;
+      const tag = escapeHtml(match[0]);
+      result += outer ? `<span class="outer-list-tag">${tag}</span>` : tag;
+      if (closing) depth--;
+      lastIndex = match.index + match[0].length;
+    }
+    return result + escapeHtml(html.slice(lastIndex));
   }
 
   function updatePreview() {
     const lesson = lessons.find(item=>item.id===select.value);
     const html = examples(lesson.mode);
-    source.textContent=html;
+    source.innerHTML=highlightOuterListTags(html);
     // All markup is generated from fixed lesson templates and controlled options, not user HTML.
     preview.innerHTML=html;
+    const outerList = preview.querySelector('ul, ol');
+    if (outerList) outerList.classList.add('outer-list-preview');
   }
 
   function loadLesson() {
@@ -59,15 +86,13 @@
     $('lesson-title').textContent=lesson.title;
     $('plain-english').textContent=lesson.plain;
     $('try-this').textContent=lesson.tryThis;
-    $('copy-status').textContent='';
-    controls.replaceChildren();
     state={bullet:'disc',type:'a',start:'1',nested:'show',details:'short'};
-    if(lesson.mode==='unordered') addSelect('Bullet style', [['disc','Filled circles (default)'],['circle','Open circles'],['square','Squares'],['none','No bullets']],state.bullet,value=>state.bullet=value);
-    if(lesson.mode==='ordered') addSelect('Start counting at', [['1','1'],['3','3'],['5','5']],state.start,value=>state.start=value);
-    if(lesson.mode==='alphabetical') addSelect('Letter style', [['a','Lowercase letters'],['A','Uppercase letters']],state.type,value=>state.type=value);
-    if(lesson.mode==='roman') {state.type='i';addSelect('Roman numeral style', [['i','Lowercase Roman'],['I','Uppercase Roman']],state.type,value=>state.type=value);}
-    if(lesson.mode==='nested') addSelect('Donation sublist', [['show','Show nested list'],['hide','Hide nested list']],state.nested,value=>state.nested=value);
-    if(lesson.mode==='description') addSelect('Description detail', [['short','Short descriptions'],['detailed','Detailed descriptions']],state.details,value=>state.details=value);
+    if(lesson.mode==='unordered') configureExperiment('Bullet style', [['disc','Filled circles (default)'],['circle','Open circles'],['square','Squares'],['none','No bullets']],state.bullet,value=>state.bullet=value);
+    if(lesson.mode==='ordered') configureExperiment('Start counting at', [['1','1'],['3','3'],['5','5']],state.start,value=>state.start=value);
+    if(lesson.mode==='alphabetical') configureExperiment('Letter style', [['a','Lowercase letters'],['A','Uppercase letters']],state.type,value=>state.type=value);
+    if(lesson.mode==='roman') {state.type='i';configureExperiment('Roman numeral style', [['i','Lowercase Roman'],['I','Uppercase Roman']],state.type,value=>state.type=value);}
+    if(lesson.mode==='nested') configureExperiment('Donation sublist', [['show','Show nested list'],['hide','Hide nested list']],state.nested,value=>state.nested=value);
+    if(lesson.mode==='description') configureExperiment('Description detail', [['short','Short descriptions'],['detailed','Detailed descriptions']],state.details,value=>state.details=value);
     updatePreview();
   }
 
@@ -78,9 +103,5 @@
     const option=document.createElement('option');option.value=lesson.id;option.textContent=lesson.title;optgroup.append(option);
   });
   select.addEventListener('change',loadLesson);
-  $('copy-source').addEventListener('click',async()=>{
-    try {await navigator.clipboard.writeText(source.textContent);$('copy-status').textContent='HTML copied!';}
-    catch { $('copy-status').textContent='Copy unavailable here. Select the HTML above to copy it manually.'; }
-  });
   loadLesson();
 })();

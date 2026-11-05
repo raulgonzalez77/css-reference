@@ -26,8 +26,16 @@
   <main class="container">
     <section class="lesson-picker" aria-labelledby="picker-heading">
       <h2 id="picker-heading">Choose a lesson</h2>
-      <label for="lesson-select">HTML list example</label>
-      <select id="lesson-select"></select>
+      <div class="picker-grid">
+        <div class="control">
+          <label for="lesson-select">HTML list example</label>
+          <select id="lesson-select"></select>
+        </div>
+        <div class="control">
+          <label for="experiment-select">Experiment</label>
+          <select id="experiment-select"></select>
+        </div>
+      </div>
     </section>
     <section class="lesson-intro" aria-live="polite" aria-atomic="true">
       <p class="eyebrow" id="lesson-category"></p>
@@ -35,15 +43,10 @@
       <p><strong>In Plain English:</strong> <span id="plain-english"></span></p>
       <div class="try-this"><h3>Try This</h3><p id="try-this"></p></div>
     </section>
-    <section class="experiment" aria-labelledby="experiment-heading">
-      <h2 id="experiment-heading">Experiment</h2>
-      <div id="experiment-controls"></div>
-    </section>
     <div class="panels">
       <section class="panel" aria-labelledby="source-heading">
-        <div class="panel-heading"><h2 id="source-heading">HTML Source</h2><button type="button" id="copy-source">Copy HTML</button></div>
+        <div class="panel-heading"><h2 id="source-heading">HTML Source</h2></div>
         <pre><code id="html-source"></code></pre>
-        <p class="status" id="copy-status" role="status"></p>
       </section>
       <section class="panel" aria-labelledby="preview-heading">
         <h2 id="preview-heading">Live Preview</h2>
