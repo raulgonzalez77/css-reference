@@ -32,3 +32,7 @@
 @media(max-width:760px){.panels{grid-template-columns:1fr}}
 @media(max-width:600px){.picker-grid{grid-template-columns:1fr}.hero{padding-top:30px}}
 @media print{.lesson-picker{display:none}.panels{grid-template-columns:1fr}.panel{break-inside:avoid}.hero{display:block}}
+
+/* Highlight the selected <li> tags and their matching rendered items. */
+.list-item-tag{background:#bce9ff;color:#142b3a;border-radius:3px;padding:1px 3px;font-weight:750}
+.preview li.list-item-preview{background:#e3f5ff;outline:2px solid #388db8;outline-offset:2px;border-radius:3px;padding:.15rem .35rem}

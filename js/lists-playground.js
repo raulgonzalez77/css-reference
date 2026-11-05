@@ -13,6 +13,9 @@
   const listItems = (arr, indent='  ') => arr.map(item => `${indent}<li>${escapeHtml(item)}</li>`).join('\n');
 
   function examples(mode) {
+    if (mode === 'list-items') {
+      return `<ul>\n${listItems(['Wedding runway', 'Donate clothing', 'Donate money'])}\n</ul>`;
+    }
     if (mode === 'unordered') {
       const type = state.bullet;
       const css = type === 'disc' ? '' : ` style="list-style-type: ${type};"`;
@@ -69,14 +72,31 @@
     return result + escapeHtml(html.slice(lastIndex));
   }
 
+  function highlightListItemTags(html) {
+    // The list-items lesson has three simple sibling <li> elements.
+    let index = 0;
+    return html.replace(/<li>|<\/li>/g, tag => {
+      const itemIndex = Math.floor(index++ / 2);
+      const selected = state.liFocus === 'all' || Number(state.liFocus) === itemIndex;
+      return selected ? `<span class="list-item-tag">${escapeHtml(tag)}</span>` : escapeHtml(tag);
+    });
+  }
+
   function updatePreview() {
     const lesson = lessons.find(item=>item.id===select.value);
     const html = examples(lesson.mode);
-    source.innerHTML=highlightOuterListTags(html);
+    source.innerHTML=lesson.mode === 'list-items'
+      ? highlightListItemTags(html).replace(/&lt;(\/?ul)&gt;/g, '<span class="outer-list-tag">&lt;$1&gt;</span>')
+      : highlightOuterListTags(html);
     // All markup is generated from fixed lesson templates and controlled options, not user HTML.
     preview.innerHTML=html;
     const outerList = preview.querySelector('ul, ol');
     if (outerList) outerList.classList.add('outer-list-preview');
+    if (lesson.mode === 'list-items') {
+      preview.querySelectorAll('li').forEach((li, index) => {
+        if (state.liFocus === 'all' || Number(state.liFocus) === index) li.classList.add('list-item-preview');
+      });
+    }
   }
 
   function loadLesson() {
@@ -86,7 +106,8 @@
     $('lesson-title').textContent=lesson.title;
     $('plain-english').textContent=lesson.plain;
     $('try-this').textContent=lesson.tryThis;
-    state={bullet:'disc',type:'a',start:'1',nested:'show',details:'short'};
+    state={bullet:'disc',type:'a',start:'1',nested:'show',details:'short',liFocus:'all'};
+    if(lesson.mode==='list-items') configureExperiment('Highlight list item', [['all','All <li> items'],['0','First <li> item'],['1','Second <li> item'],['2','Third <li> item']],state.liFocus,value=>state.liFocus=value);
     if(lesson.mode==='unordered') configureExperiment('Bullet style', [['disc','Filled circles (default)'],['circle','Open circles'],['square','Squares'],['none','No bullets']],state.bullet,value=>state.bullet=value);
     if(lesson.mode==='ordered') configureExperiment('Start counting at', [['1','1'],['3','3'],['5','5']],state.start,value=>state.start=value);
     if(lesson.mode==='alphabetical') configureExperiment('Letter style', [['a','Lowercase letters'],['A','Uppercase letters']],state.type,value=>state.type=value);
