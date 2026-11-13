@@ -35,7 +35,7 @@
       <div class="section-heading"><div><p class="eyebrow">Choose a subject</p><h2 id="categories-heading">Study areas</h2></div></div>
       <div class="review-category-grid">
         <a class="review-category-card" href="#html-fundamentals"><span class="review-category-icon" aria-hidden="true">&lt;/&gt;</span><h3>HTML Fundamentals</h3><p>Elements, attributes, document structure, links, lists, and folders.</p><span class="review-category-status">Start reviewing →</span></a>
-        <div class="review-category-card review-category-card--pending"><span class="review-category-icon" aria-hidden="true">{ }</span><h3>CSS Fundamentals</h3><p>Box model, positioning, colors, and CSS rules.</p><span class="review-category-status">Coming next</span></div>
+        <a class="review-category-card" href="#css-fundamentals"><span class="review-category-icon" aria-hidden="true">{ }</span><h3>CSS Fundamentals</h3><p>Box model, positioning, colors, and CSS rules.</p><span class="review-category-status">Start reviewing →</span></a>
         <div class="review-category-card review-category-card--pending"><span class="review-category-icon" aria-hidden="true">☷</span><h3>Forms &amp; Inputs</h3><p>Radio buttons, checkboxes, dropdowns, and field behavior.</p><span class="review-category-status">Coming soon</span></div>
         <div class="review-category-card review-category-card--pending"><span class="review-category-icon" aria-hidden="true">▧</span><h3>Images &amp; Design</h3><p>Image sizing, aspect ratio, alternative text, and visual planning.</p><span class="review-category-status">Coming soon</span></div>
         <div class="review-category-card review-category-card--pending"><span class="review-category-icon" aria-hidden="true">▣</span><h3>Responsive Design</h3><p>Screen sizes, breakpoints, and responsive layouts.</p><span class="review-category-status">Coming soon</span></div>
@@ -83,6 +83,38 @@
     └── logo.png</code></pre></div><p class="review-remember"><strong>Remember this:</strong> A directory is another name for a folder. File paths tell the browser where resources are located.</p></article>
       </div>
       <div class="review-section-end"><p>You've reached the end of HTML Fundamentals.</p><a href="#categories">↑ Back to study areas</a></div>
+    </section>
+
+    <section id="css-fundamentals" class="review-section" aria-labelledby="css-heading">
+      <div class="review-section-heading"><div><p class="eyebrow">Study area 02</p><h2 id="css-heading">CSS Fundamentals</h2><p>CSS controls how HTML elements look and how they are positioned. Review the box model, declarations, colors, and common rules that affect a webpage's appearance.</p></div><a class="review-back-link" href="#categories">↑ Back to categories</a></div>
+      <div class="review-study-grid">
+        <article class="review-study-card"><p class="review-card-kicker">Box model</p><h3>Content, padding, border, and margin</h3><p>Every HTML element has a rectangular box. <strong>Padding</strong> adds space inside the border; <strong>margin</strong> adds space outside it. The <strong>border</strong> surrounds the padding and content.</p><div class="review-visual"><p class="review-visual-label">The CSS box model</p><div class="review-box-margin"><span>Margin</span><div class="review-box-border"><span>Border</span><div class="review-box-padding"><span>Padding</span><div class="review-box-content">Content</div></div></div></div></div><p class="review-remember"><strong>Remember this:</strong> Padding is between the content and the border. Margin is outside the border.</p></article>
+
+        <article class="review-study-card"><p class="review-card-kicker">CSS declarations</p><h3>Properties, values, and inline CSS</h3><p>A CSS declaration pairs a <strong>property</strong> with a <strong>value</strong>. CSS can be written in a stylesheet or directly in an element's <code>style</code> attribute, which is called <strong>inline CSS</strong>.</p><div class="review-visual"><p class="review-visual-label">Property and value</p><pre><code>color: #000000;</code></pre><p class="review-visual-caption"><code>color</code> is the property; <code>#000000</code> is the value (black).</p><p class="review-visual-label review-visual-label--spaced">Inline CSS example</p><pre><code>&lt;span style="color: #000000;"&gt;Text&lt;/span&gt;</code></pre></div><p class="review-remember"><strong>Remember this:</strong> <code>style</code> is an HTML attribute; <code>color: #000000;</code> is a CSS declaration inside it.</p></article>
+
+        <article class="review-study-card"><p class="review-card-kicker">Shorthand values</p><h3>Four sides, clockwise</h3><p>For properties such as <code>margin</code> and <code>padding</code>, four values are applied in clockwise order: <strong>top, right, bottom, left</strong>.</p><div class="review-visual"><p class="review-visual-label">Example shorthand</p><pre><code>padding: 10px 20px 30px 40px;</code></pre><div class="review-clockwise"><span class="review-clock-top">Top · 10px</span><span class="review-clock-right">Right · 20px</span><span class="review-clock-bottom">Bottom · 30px</span><span class="review-clock-left">Left · 40px</span><div class="review-clock-center">CONTENT</div></div></div><p class="review-remember"><strong>Remember this:</strong> Think of a clock: top → right → bottom → left. The four-value pattern applies to <code>margin</code> and <code>padding</code>, not to the values of the <code>border</code> shorthand.</p></article>
+
+        <article class="review-study-card"><p class="review-card-kicker">Positioning</p><h3>Relative and absolute positioning</h3><p><code>position: relative</code> moves an element <strong>relative to where it would normally appear</strong>. <code>position: absolute</code> positions an element relative to its nearest positioned ancestor, if one exists.</p><div class="review-visual"><p class="review-visual-label">Relative positioning</p><div class="review-position-stage"><div class="review-position-original">Normal position</div><div class="review-position-shifted">Moved right and down</div></div><pre><code>.example {
+  position: relative;
+  top: 15px;
+  left: 20px;
+}</code></pre></div><p class="review-remember"><strong>Remember this:</strong> Relative positioning uses an element's own normal position as the starting point. Absolute positioning works differently.</p></article>
+
+        <article class="review-study-card"><p class="review-card-kicker">Layering</p><h3>Which element appears in front?</h3><p>When positioned elements overlap, <code>z-index</code> helps control their stacking order. A higher value can place one element above another within the same stacking context.</p><div class="review-visual"><p class="review-visual-label">Overlapping elements</p><div class="review-stack-stage"><div class="review-stack-back">z-index: 1</div><div class="review-stack-front">z-index: 2</div></div><pre><code>.front {
+  position: absolute;
+  z-index: 2;
+}</code></pre></div><p class="review-remember"><strong>Remember this:</strong> <code>z-index</code> controls stacking order, but stacking contexts can affect which element appears on top.</p></article>
+
+        <article class="review-study-card"><p class="review-card-kicker">Colors</p><h3>RGBA and the alpha channel</h3><p>RGBA describes a color using red, green, blue, and <strong>alpha</strong>. Alpha controls transparency: <code>1</code> is fully opaque and <code>0</code> is fully transparent.</p><div class="review-visual"><p class="review-visual-label">Same color, different alpha values</p><div class="review-alpha-grid"><div><span style="background:rgba(30,105,190,1)"></span><small>1.0</small></div><div><span style="background:rgba(30,105,190,.7)"></span><small>0.7</small></div><div><span style="background:rgba(30,105,190,.4)"></span><small>0.4</small></div><div><span style="background:rgba(30,105,190,.15)"></span><small>0.15</small></div></div><pre><code>background-color: rgba(30, 105, 190, 0.4);</code></pre></div><p class="review-remember"><strong>Remember this:</strong> The “A” in RGBA stands for <strong>alpha</strong>, which controls transparency.</p></article>
+
+        <article class="review-study-card"><p class="review-card-kicker">Debugging CSS</p><h3>A missing brace changes the result</h3><p>Browsers can ignore declarations when CSS syntax is broken. A misspelled word inside a comment doesn't affect styling, but a missing <code>}</code> can interfere with the rules that follow it.</p><div class="review-visual"><p class="review-visual-label">Find the syntax error</p><pre><code>body {
+  background-color: #000000; /* black */
+
+ div {
+  color: #ffffff;
+}</code></pre><p class="review-visual-caption">The <code>body</code> rule is missing its closing <code>}</code> before the <code>div</code> rule. The browser may apply the background but not the intended <code>div</code> color.</p></div><p class="review-remember"><strong>Remember this:</strong> Comments are ignored by the browser; missing punctuation in CSS rules can cause real syntax errors.</p></article>
+      </div>
+      <div class="review-section-end"><p>You've reached the end of CSS Fundamentals.</p><a href="#categories">↑ Back to study areas</a></div>
     </section>
   </main>
   <footer class="container footer">Final Exam Study Guide · IMED 1316 Web Design I · Built for learning and review.</footer>
