@@ -188,3 +188,21 @@
 .review-ready-flow span:nth-child(odd) { flex:1; text-align:center; padding:.7rem .25rem; background:#eaf3ff; border:1px solid #c4d7ec; border-radius:8px; font-size:.82rem; font-weight:700; }
 .review-ready-flow span:nth-child(even) { color:#52769b; }
 @media (max-width:520px) { .review-git-flow { gap:.25rem; }.review-git-flow > div { font-size:.7rem; padding:.55rem .15rem; }.review-deploy-flow { gap:.3rem; }.review-deploy-flow > div { padding:.5rem .2rem; font-size:.7rem; }.review-error-pair { grid-template-columns:1fr; } }
+
+
+/* Web Design & Usability — concise visual comparisons. */
+.review-tagline-comparison { display:grid; gap:.7rem; }
+.review-tagline-example { background:#fff; border:1px solid #d4dfe9; border-radius:9px; padding:.8rem; }
+.review-tagline-example--clear { border-color:#70a68a; background:#f2faf5; }
+.review-tagline-header { display:flex; gap:.5rem; align-items:center; color:#243f57; }
+.review-tagline-logo { display:grid; place-items:center; width:1.8rem; height:1.8rem; border-radius:6px; background:#d9e9f5; color:#28658b; }
+.review-tagline-line { font-size:.9rem; font-weight:700; margin:.45rem 0 .25rem !important; }
+.review-tagline-example small { display:block; color:#526175; line-height:1.45; }
+.review-team-opinions { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.4rem; }
+.review-team-opinions span { display:grid; place-items:center; min-height:70px; border:1px solid #cbd9e5; border-radius:8px; padding:.45rem; background:white; font-size:.75rem; font-weight:700; text-align:center; color:#3e566b; }
+.review-team-arrow { text-align:center; font-size:1.6rem; line-height:1.4; color:#5482a1; }
+.review-team-visitor { padding:.8rem; border:2px solid #609a79; border-radius:9px; background:#e7f5eb; text-align:center; color:#255d3b; }
+.review-team-visitor strong,.review-team-visitor small { display:block; }
+.review-team-visitor small { margin-top:.3rem; line-height:1.45; }
+@media(max-width:420px) { .review-team-opinions { grid-template-columns:1fr; }.review-team-opinions span { min-height:0; } }
+@media print { .review-tagline-example,.review-team-opinions span,.review-team-visitor { print-color-adjust:exact; -webkit-print-color-adjust:exact; } }
