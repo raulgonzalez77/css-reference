@@ -128,3 +128,29 @@
 .review-color-dominant { background: #24658a; color: #fff; } .review-color-support { background: #c5dfed; color: #1b4660; } .review-color-accent { background: #e6ad4d; color: #59390d; }
 @media (max-width: 450px) { .review-image-checks > div { flex-direction: column; gap: .15rem; } .review-image-checks span { text-align: left; } }
 @media print { .review-ratio-box, .review-resize-icon, .review-alt-demo, .review-moodboard > div, .review-mood-swatches span, .review-color-palette > div { print-color-adjust: exact; -webkit-print-color-adjust: exact; } }
+
+
+/* Responsive Design — static, fluid illustrations. */
+.review-devices { display:flex; align-items:end; justify-content:center; gap:1.2rem; margin:.5rem 0 1rem; }
+.review-device { min-width:0; padding:.55rem; border:3px solid #54748e; border-radius:9px; background:#fff; text-align:center; color:#38556b; font-size:.73rem; font-weight:700; }
+.review-device--desktop { width:65%; } .review-device--mobile { width:25%; min-width:78px; }
+.review-device-bars { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:.35rem; margin-top:.5rem; }
+.review-device-bars i { display:block; height:50px; background:#9bcbe1; border:1px solid #4e96bb; border-radius:4px; }
+.review-device--mobile .review-device-bars { grid-template-columns:1fr; gap:.25rem; }
+.review-device--mobile .review-device-bars i { height:20px; }
+.review-breakpoint-visual, .review-bootstrap-compare { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.75rem; margin:.4rem 0 .9rem; }
+.review-breakpoint-visual > div, .review-bootstrap-compare > div { min-width:0; font-size:.78rem; color:#34546b; }
+.review-breakpoint-visual strong, .review-bootstrap-compare strong { display:block; margin-bottom:.45rem; }
+.review-breakpoint-pair, .review-breakpoint-stack, .review-bootstrap-wide, .review-bootstrap-narrow { display:grid; gap:.3rem; min-height:76px; padding:.45rem; border:1px solid #c5d6e4; border-radius:6px; background:#fff; }
+.review-breakpoint-pair, .review-bootstrap-wide { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.review-breakpoint-stack, .review-bootstrap-narrow { grid-template-columns:1fr; }
+.review-breakpoint-pair i, .review-breakpoint-stack i { display:block; min-height:24px; background:#b8d7ea; border:1px solid #5490b7; border-radius:4px; }
+.review-twelve-grid { display:grid; grid-template-columns:repeat(12,minmax(0,1fr)); gap:3px; margin:.4rem 0 1rem; }
+.review-twelve-grid i { height:40px; min-width:0; background:#a9cce3; border:1px solid #5d97bc; border-radius:3px; }
+.review-grid-examples { display:grid; gap:.65rem; margin-bottom:1rem; font-size:.8rem; }
+.review-grid-examples strong { display:block; margin-bottom:.3rem; }
+.review-grid-halves, .review-grid-thirds { display:grid; gap:.3rem; }
+.review-grid-halves { grid-template-columns:repeat(2,minmax(0,1fr)); } .review-grid-thirds { grid-template-columns:repeat(3,minmax(0,1fr)); }
+.review-grid-halves i, .review-grid-thirds i, .review-bootstrap-wide i, .review-bootstrap-narrow i { display:grid; place-items:center; min-width:0; min-height:34px; border:1px solid #4b8eb4; border-radius:4px; background:#b9d9eb; color:#1d4f6d; font-style:normal; font-size:.78rem; font-weight:700; }
+@media (max-width:450px) { .review-devices { gap:.55rem; } .review-device--desktop { width:66%; } .review-device--mobile { width:30%; min-width:65px; } .review-breakpoint-visual, .review-bootstrap-compare { gap:.45rem; } }
+@media print { .review-device-bars i, .review-breakpoint-pair i, .review-breakpoint-stack i, .review-twelve-grid i, .review-grid-halves i, .review-grid-thirds i, .review-bootstrap-wide i, .review-bootstrap-narrow i { print-color-adjust:exact; -webkit-print-color-adjust:exact; } }
