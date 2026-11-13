@@ -69,3 +69,25 @@
 .review-alpha-grid span { display: block; height: 62px; border-radius: 6px; border: 1px solid #c6d2de; background-image: linear-gradient(45deg,#fff 25%,#eee 25%,#eee 50%,#fff 50%,#fff 75%,#eee 75%); }
 .review-alpha-grid small { display: block; margin-top: .3rem; }
 @media print { .review-box-margin, .review-box-border, .review-box-padding, .review-clockwise, .review-position-shifted, .review-stack-back, .review-stack-front, .review-alpha-grid span { print-color-adjust: exact; -webkit-print-color-adjust: exact; } }
+
+
+/* Forms & Inputs — static illustrations for the study guide. */
+.review-form-example { margin: .4rem 0 0; padding: .75rem .85rem; border: 1px solid #cbd9e5; border-radius: 8px; background: #fff; }
+.review-form-example legend { padding: 0 .3rem; color: #41546a; font-size: .82rem; font-weight: 700; }
+.review-form-example label { display: block; margin: .45rem 0; font-size: .9rem; }
+.review-form-example input { accent-color: #246f9c; margin-right: .4rem; }
+.review-form-example input:disabled { opacity: 1; }
+.review-select-comparison { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: .8rem; margin: .5rem 0 .9rem; }
+.review-select-comparison > div { min-width: 0; display: flex; flex-direction: column; gap: .5rem; font-size: .85rem; }
+.review-select-comparison select, .review-field-demo input { width: 100%; max-width: 100%; border: 1px solid #9db1c4; border-radius: 6px; padding: .5rem; font: inherit; color: #263647; background: #fff; opacity: 1; }
+.review-select-comparison select:disabled { opacity: 1; color: #263647; background: #fff; }
+.review-field-demo { margin: .5rem 0 .8rem; }
+.review-field-demo label { display: block; font-size: .85rem; font-weight: 700; margin-bottom: .4rem; }
+.review-field-demo input:disabled { background: #e4e9ee; color: #536174; opacity: 1; }
+.review-field-demo input[readonly] { background: #fff; }
+.review-comparison-scroll { overflow-x: auto; }
+.review-compare-table { border-collapse: collapse; width: 100%; min-width: 300px; background: #fff; font-size: .83rem; }
+.review-compare-table th, .review-compare-table td { padding: .65rem .5rem; border-bottom: 1px solid #d9e1e9; text-align: left; }
+.review-compare-table thead th { background: #e7f0f7; color: #234763; }
+.review-compare-table tbody th { font-weight: 600; }
+@media (max-width: 450px) { .review-select-comparison { grid-template-columns: 1fr; } }
