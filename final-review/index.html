@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A visual final exam study guide for IMED 1316 Web Design I." />
+  <title>Final Exam Study Guide | Web Design I</title>
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/navigation.css" />
+  <link rel="stylesheet" href="../css/final-review.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="../index.html">{ CSS } <span>Selector Reference</span></a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="../index.html">CSS Reference</a>
+        <a href="../playground.html">CSS Playground</a>
+        <a href="../forms-playground.html">Forms Playground</a>
+        <a href="../lists-playground.html">Lists Playground</a>
+        <a href="../tables-playground.html">Tables Playground</a>
+        <a href="index.html" aria-current="page">Final Exam Review</a>
+      </nav>
+    </div>
+  </header>
+  <main id="top" class="container review-main">
+    <section class="hero review-hero" aria-labelledby="page-title">
+      <p class="eyebrow">IMED 1316 · Web Design I</p>
+      <h1 id="page-title">Final Exam Study Guide</h1>
+      <p class="lede">A visual review of the ideas we've covered this semester. Choose a subject, read the short explanations, and use the examples to refresh your memory.</p>
+      <p class="review-intro-note">This is a study resource, not a practice test. There are no scores, timers, or questions to submit.</p>
+    </section>
+
+    <section id="categories" class="review-categories" aria-labelledby="categories-heading">
+      <div class="section-heading"><div><p class="eyebrow">Choose a subject</p><h2 id="categories-heading">Study areas</h2></div></div>
+      <div class="review-category-grid">
+        <a class="review-category-card" href="#html-fundamentals"><span class="review-category-icon" aria-hidden="true">&lt;/&gt;</span><h3>HTML Fundamentals</h3><p>Elements, attributes, document structure, links, lists, and folders.</p><span class="review-category-status">Start reviewing →</span></a>
+        <div class="review-category-card review-category-card--pending"><span class="review-category-icon" aria-hidden="true">{ }</span><h3>CSS Fundamentals</h3><p>Box model, positioning, colors, and CSS rules.</p><span class="review-category-status">Coming next</span></div>
+        <div class="review-category-card review-category-card--pending"><span class="review-category-icon" aria-hidden="true">☷</span><h3>Forms &amp; Inputs</h3><p>Radio buttons, checkboxes, dropdowns, and field behavior.</p><span class="review-category-status">Coming soon</span></div>
+        <div class="review-category-card review-category-card--pending"><span class="review-category-icon" aria-hidden="true">▧</span><h3>Images &amp; Design</h3><p>Image sizing, aspect ratio, alternative text, and visual planning.</p><span class="review-category-status">Coming soon</span></div>
+        <div class="review-category-card review-category-card--pending"><span class="review-category-icon" aria-hidden="true">▣</span><h3>Responsive Design</h3><p>Screen sizes, breakpoints, and responsive layouts.</p><span class="review-category-status">Coming soon</span></div>
+        <div class="review-category-card review-category-card--pending"><span class="review-category-icon" aria-hidden="true">⌘</span><h3>Development Tools</h3><p>Git, CDNs, deployment, validation, and debugging.</p><span class="review-category-status">Coming soon</span></div>
+        <div class="review-category-card review-category-card--pending"><span class="review-category-icon" aria-hidden="true">◎</span><h3>Web Design &amp; Usability</h3><p>Clear communication, site identity, and team decisions.</p><span class="review-category-status">Coming soon</span></div>
+      </div>
+    </section>
+
+    <section id="html-fundamentals" class="review-section" aria-labelledby="html-heading">
+      <div class="review-section-heading"><div><p class="eyebrow">Study area 01</p><h2 id="html-heading">HTML Fundamentals</h2><p>HTML provides the structure of a webpage. These study cards cover the language's building blocks and common ways to organize and connect content.</p></div><a class="review-back-link" href="#categories">↑ Back to categories</a></div>
+      <div class="review-study-grid">
+        <article class="review-study-card"><p class="review-card-kicker">Building blocks</p><h3>HTML elements and tags</h3><p>An <strong>HTML element</strong> is a building block of a webpage. Most elements use an opening tag, content, and a closing tag.</p><div class="review-visual"><p class="review-visual-label">Example HTML</p><pre><code>&lt;p&gt;Welcome to my webpage!&lt;/p&gt;</code></pre><div class="review-rendered"><p>Welcome to my webpage!</p></div></div><p class="review-remember"><strong>Remember this:</strong> The whole example is a paragraph element; <code>&lt;p&gt;</code> and <code>&lt;/p&gt;</code> are its tags.</p></article>
+
+        <article class="review-study-card"><p class="review-card-kicker">Document structure</p><h3>What belongs in the body?</h3><p>The <code>&lt;body&gt;</code> element contains the content displayed in the browser window, such as headings, paragraphs, images, and links.</p><div class="review-visual"><p class="review-visual-label">Simplified document</p><pre><code>&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;My Page&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hello!&lt;/h1&gt;
+    &lt;p&gt;Welcome.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre></div><p class="review-remember"><strong>Remember this:</strong> The <code>&lt;head&gt;</code> stores document information; the <code>&lt;body&gt;</code> contains visible page content.</p></article>
+
+        <article class="review-study-card"><p class="review-card-kicker">Attributes</p><h3>Adding information to elements</h3><p><strong>Attributes</strong> provide additional information about an HTML element. They appear in the opening tag, often as a name and a value.</p><div class="review-visual"><p class="review-visual-label">Example attribute</p><pre><code>&lt;a href="about.html" title="Learn more"&gt;
+  About us
+&lt;/a&gt;</code></pre><p class="review-visual-caption"><code>href</code> identifies the destination; <code>title</code> provides advisory information.</p></div><p class="review-remember"><strong>Remember this:</strong> <code>title="Learn more"</code> is an attribute, not a CSS declaration.</p></article>
+
+        <article class="review-study-card"><p class="review-card-kicker">Void elements</p><h3>Elements without closing tags</h3><p>Some HTML elements don't wrap content and don't have a separate closing tag. Examples include <code>&lt;img&gt;</code>, <code>&lt;br&gt;</code>, and <code>&lt;hr&gt;</code>.</p><div class="review-visual"><p class="review-visual-label">Examples</p><pre><code>&lt;img src="photo.jpg" alt="Campus building"&gt;
+&lt;br&gt;
+&lt;hr&gt;</code></pre></div><p class="review-remember"><strong>Remember this:</strong> These are called <em>void elements</em> in HTML. You may also see them described as “self-closing” in introductory materials.</p></article>
+
+        <article class="review-study-card"><p class="review-card-kicker">Links and navigation</p><h3>Where can links go?</h3><p>Links can lead to another page on your website, an external website, or a particular section of the current page.</p><div class="review-visual"><p class="review-visual-label">Three destinations</p><pre><code>&lt;a href="about.html"&gt;Internal page&lt;/a&gt;
+&lt;a href="https://example.com"&gt;External site&lt;/a&gt;
+&lt;a href="#contact"&gt;Page section&lt;/a&gt;</code></pre><p class="review-visual-caption">A section link uses the destination element's <code>id</code>.</p></div><p class="review-remember"><strong>Remember this:</strong> An anchor link such as <code>#contact</code> jumps to an element with <code>id="contact"</code>.</p></article>
+
+        <article class="review-study-card"><p class="review-card-kicker">Lists</p><h3>Ordered vs. unordered lists</h3><p>An <strong>ordered list</strong> (<code>&lt;ol&gt;</code>) presents items in a meaningful sequence. An <strong>unordered list</strong> (<code>&lt;ul&gt;</code>) groups items without implying a sequence. Both use <code>&lt;li&gt;</code> for each item.</p><div class="review-visual"><p class="review-visual-label">How they appear</p><div class="review-list-comparison"><div><strong>Ordered</strong><ol><li>Plan</li><li>Build</li><li>Publish</li></ol></div><div><strong>Unordered</strong><ul><li>HTML</li><li>CSS</li><li>JavaScript</li></ul></div></div><pre><code>&lt;ol&gt;&lt;li&gt;First&lt;/li&gt;&lt;/ol&gt;
+&lt;ul&gt;&lt;li&gt;Item&lt;/li&gt;&lt;/ul&gt;</code></pre></div><p class="review-remember"><strong>Remember this:</strong> Choose <code>&lt;ol&gt;</code> when order matters; choose <code>&lt;ul&gt;</code> when it doesn't.</p></article>
+
+        <article class="review-study-card"><p class="review-card-kicker">Website organization</p><h3>Folders and directories</h3><p>Websites organize files into <strong>folders</strong>, also called <strong>directories</strong>. This makes it easier to keep pages, images, and stylesheets organized.</p><div class="review-visual"><p class="review-visual-label">Example folder structure</p><pre><code>my-website/
+├── index.html
+├── about.html
+├── css/
+│   └── styles.css
+└── images/
+    └── logo.png</code></pre></div><p class="review-remember"><strong>Remember this:</strong> A directory is another name for a folder. File paths tell the browser where resources are located.</p></article>
+      </div>
+      <div class="review-section-end"><p>You've reached the end of HTML Fundamentals.</p><a href="#categories">↑ Back to study areas</a></div>
+    </section>
+  </main>
+  <footer class="container footer">Final Exam Study Guide · IMED 1316 Web Design I · Built for learning and review.</footer>
+</body>
+</html>

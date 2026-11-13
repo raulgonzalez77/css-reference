@@ -1,0 +1,42 @@
+/* Final Exam Study Guide — page-specific styles only. */
+.review-main { padding-bottom: 3rem; }
+.review-hero { padding-bottom: 1.75rem; }
+.review-intro-note { max-width: 48rem; color: #536174; font-size: .94rem; }
+.review-categories, .review-section { margin-top: 2.2rem; }
+.review-category-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 1rem; margin-top: 1.1rem; }
+.review-category-card { display: flex; flex-direction: column; gap: .5rem; padding: 1.25rem; border: 1px solid #d9e1e9; border-radius: 14px; background: #fff; color: #172a3e; text-decoration: none; box-shadow: 0 2px 9px rgba(19, 42, 67, .045); }
+.review-category-card[href]:hover { border-color: #2779a7; box-shadow: 0 6px 20px rgba(19, 42, 67, .12); transform: translateY(-2px); }
+.review-category-card[href]:focus-visible { outline: 3px solid #2779a7; outline-offset: 3px; }
+.review-category-card h3 { margin: .1rem 0 0; font-size: 1.08rem; }
+.review-category-card p { margin: 0; font-size: .92rem; line-height: 1.55; color: #526175; flex: 1; }
+.review-category-icon { display: inline-flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; background: #eaf4fa; border-radius: 10px; color: #175e86; font-weight: 800; font-size: 1.1rem; }
+.review-category-status { margin-top: .45rem; color: #12618e; font-weight: 700; font-size: .85rem; }
+.review-category-card--pending { background: #f8fafc; }
+.review-category-card--pending .review-category-status { color: #657287; }
+.review-section { border-top: 1px solid #d9e1e9; padding-top: 2rem; scroll-margin-top: 1.5rem; }
+.review-section-heading { display: flex; justify-content: space-between; gap: 1.5rem; align-items: start; margin-bottom: 1.25rem; }
+.review-section-heading h2 { margin: .2rem 0 .5rem; }
+.review-section-heading p:not(.eyebrow) { margin: 0; max-width: 48rem; color: #526175; }
+.review-back-link, .review-section-end a { white-space: nowrap; font-weight: 700; color: #12618e; }
+.review-study-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; align-items: stretch; }
+.review-study-card { min-width: 0; display: flex; flex-direction: column; gap: .8rem; background: #fff; border: 1px solid #d9e1e9; border-radius: 14px; padding: 1.3rem; }
+.review-study-card h3 { margin: 0; font-size: 1.2rem; line-height: 1.3; }
+.review-study-card p { margin: 0; line-height: 1.58; }
+.review-card-kicker { text-transform: uppercase; letter-spacing: .075em; font-size: .74rem; font-weight: 800; color: #1c6b91; }
+.review-visual { background: #f4f7fa; border: 1px solid #e1e8ef; border-radius: 10px; padding: 1rem; }
+.review-visual-label { font-size: .76rem; letter-spacing: .04em; text-transform: uppercase; font-weight: 800; color: #526175; margin-bottom: .5rem !important; }
+.review-visual pre { margin: .4rem 0 0; padding: .8rem; overflow-x: auto; background: #17283b; color: #f4f7fb; border-radius: 8px; line-height: 1.5; font-size: .84rem; white-space: pre; }
+.review-visual pre code { color: inherit; background: transparent; padding: 0; }
+.review-study-card :not(pre) > code { padding: .1em .3em; background: #eaf0f5; border-radius: 4px; overflow-wrap: anywhere; }
+.review-rendered { background: #fff; padding: .65rem .8rem; border: 1px dashed #b9c8d7; margin-top: .65rem; border-radius: 7px; }
+.review-rendered p { margin: 0; }
+.review-visual-caption { margin-top: .7rem !important; font-size: .84rem; color: #526175; }
+.review-list-comparison { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: .7rem; }
+.review-list-comparison > div { background: white; border-radius: 8px; padding: .75rem; }
+.review-list-comparison ol, .review-list-comparison ul { margin: .4rem 0 0; padding-left: 1.35rem; }
+.review-remember { margin-top: auto !important; padding: .8rem .9rem; background: #fff7e8; border-left: 4px solid #d69b37; border-radius: 5px; font-size: .9rem; }
+.review-section-end { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; padding: 1.2rem 0; }
+.review-section-end p { margin: 0; color: #526175; }
+@media (max-width: 760px) { .review-study-grid { grid-template-columns: 1fr; } .review-section-heading { flex-direction: column; gap: .75rem; } }
+@media (prefers-reduced-motion: no-preference) { .review-category-card[href] { transition: transform .15s ease, border-color .15s ease, box-shadow .15s ease; } }
+@media print { .site-header, .review-categories, .review-back-link, .review-section-end, .footer { display: none !important; } .review-main { max-width: none; } .review-study-grid { display: block; } .review-study-card { break-inside: avoid; page-break-inside: avoid; margin-bottom: 1rem; box-shadow: none; } .review-visual pre { white-space: pre-wrap; overflow-wrap: anywhere; } .review-section { border-top: 0; } }
